@@ -275,7 +275,7 @@ static int IsSshConfigIncludeSupported(void* log)
 
 static int CheckOnlyApprovedMacAlgorithmsAreUsed(const char* macs, char** reason, void* log)
 {
-    char *sshMacs = NULL;
+    char* sshMacs = NULL;
     char* macsValue = NULL;
     char* value = NULL;
     size_t macsValueLength = 0;
@@ -344,7 +344,7 @@ static int CheckOnlyApprovedMacAlgorithmsAreUsed(const char* macs, char** reason
 
 static int CheckAppropriateCiphersForSsh(const char* ciphers, char** reason, void* log)
 {
-    char *sshCiphers = NULL;
+    char* sshCiphers = NULL;
     char* ciphersValue = NULL;
     char* value = NULL;
     size_t ciphersValueLength = 0;
