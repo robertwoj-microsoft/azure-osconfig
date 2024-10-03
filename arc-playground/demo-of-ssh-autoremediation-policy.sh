@@ -3,8 +3,7 @@ set -euo pipefail
 PS4='+${LINENO}: '
 set -x
 
-
-RG="remediation-demo-rg11"
+RG="remediation-demo-rg"
 VM="remediation-demo-vm"
 LOCATION="westeurope"
 
