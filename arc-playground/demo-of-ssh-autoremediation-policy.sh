@@ -27,7 +27,7 @@ SSH_KEY=$(cat ~/.ssh/id_rsa.pub)
 USERNAME=$(whoami)
 
 # 6. Install SSH extension for manual inspection
-echo az vm extension set --resource-group "${RG}" --vm-name "${VM}" --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.4 --protected-settings '{"username": "demouser", "ssh_key":"'${SSH_KEY}'"}'
+az vm extension set --resource-group "${RG}" --vm-name "${VM}" --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.4 --protected-settings '{"username": "demouser", "ssh_key":"'${SSH_KEY}'"}'
 
 # 7. Log into the VM
 az ssh vm --local-user "${USERNAME}" --name "${VM}" --resource-group "${RG}" -- -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_rsa
