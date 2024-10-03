@@ -84,7 +84,8 @@ int CheckEnsurePasswordReuseIsLimited(int remember, char** reason, void* log)
     if (status)
     {
         char* pamModule = FindPamModule(g_pamUnixSo, log);
-        if(NULL == pamModule) {
+        if(NULL == pamModule)
+        {
             OsConfigCaptureReason(reason, "The PAM module '%s' is not available. Automatic remediation is not possible", g_pamUnixSo);
         }
         free(pamModule);
