@@ -20,6 +20,8 @@ option(BUILD_MODULETEST "Build the moduletest tool" ON)
 option(BUILD_SAMPLES "Build samples" OFF)
 option(COVERAGE "Enable code coverage" OFF)
 
+option(BUILD_EXPERIMENTAL "Build experimental features" OFF)
+
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
     add_compile_options("-Wno-psabi;-fPIC")
    
@@ -114,6 +116,9 @@ if (BUILD_PLATFORM)
 endif()
 if (BUILD_MODULES)
     add_subdirectory(modules)
+endif()
+if (BUILD_EXPERIMENTAL)
+    add_subdirectory(experimental)
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake")
