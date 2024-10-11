@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Azure Arc onboarding script
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/app/startup.bash
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
