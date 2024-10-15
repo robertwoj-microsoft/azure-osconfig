@@ -2,8 +2,8 @@ name: Publish (insiders-fast)
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 8 * * *' # Every day at 8am UTC (12am PST)
+  # schedule:
+    # - cron: '0 8 * * *' # Every day at 8am UTC (12am PST)
 
 jobs:
   changes:

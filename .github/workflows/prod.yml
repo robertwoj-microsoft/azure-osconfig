@@ -8,9 +8,9 @@ on:
         required: true
         default: main
         type: string
-  push:
-    tags:
-      - v*.*.*
+  # push:
+  #   tags:
+  #     - v*.*.*
 
 jobs:
   publish:
