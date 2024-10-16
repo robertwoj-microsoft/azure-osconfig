@@ -15,7 +15,9 @@ RUN apt -y update && apt-get -y install \
     wget \
     gcovr \
     jq \
-    bc
+    bc \
+    libasan5 \
+    libubsan1
 
 WORKDIR /git
 
@@ -29,4 +31,4 @@ RUN cd googletest && cmake . -G Ninja && cmake --build . --target install && rm 
 
 # rapidjson
 RUN git clone https://github.com/Tencent/rapidjson --recursive
-RUN cd rapidjson && cmake . -G Ninja && cmake --build . --target install && rm -rf /git/rapidjson
+RUN cd rapidjson && cmake -DCMAKE_CXX_FLAGS="-Wno-error=array-bounds" . -G Ninja && cmake --build . --target install && rm -rf /git/rapidjson

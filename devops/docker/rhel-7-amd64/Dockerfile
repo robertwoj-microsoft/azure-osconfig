@@ -15,7 +15,9 @@ RUN yum install -y --disableplugin=subscription-manager \
     git \
     libtool \
     make \
-    openssl-devel
+    openssl-devel \
+    libasan \
+    libubsan
 
 WORKDIR /git
 
