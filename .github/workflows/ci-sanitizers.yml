@@ -1,10 +1,11 @@
 name: CI with sanitizers enabled
 
 on:
-  pull_request:
-  workflow_dispatch:
+  # TODO: Enable pull request and cron triggers later, when this workflow is tested and not failing
+  # pull_request:
   # schedule:
     # - cron: '0 20 * * *' # Every day at 12pm PST (UTC-8)
+  workflow_dispatch:
 
 env:
   BUILD_TYPE: Debug
@@ -116,11 +117,11 @@ jobs:
       - name: Download Test Report Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: ci-sanitizers-test
+          path: ci-test
           pattern: 'unit-test-*-sanitizer'
           merge-multiple: true  
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          files: 'ci-sanitizers-test/*-sanitizer.xml'
+          files: 'ci-test/*-sanitizer.xml'
