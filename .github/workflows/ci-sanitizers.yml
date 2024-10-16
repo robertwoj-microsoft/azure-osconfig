@@ -116,11 +116,11 @@ jobs:
       - name: Download Test Report Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: ci-test
+          path: ci-sanitizers-test
           pattern: 'unit-test-*-sanitizer'
           merge-multiple: true  
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          files: 'ci-test/*-sanitizer.xml'
+          files: 'ci-sanitizers-test/*-sanitizer.xml'
