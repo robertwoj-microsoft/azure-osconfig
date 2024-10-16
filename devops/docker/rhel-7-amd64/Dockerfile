@@ -1,5 +1,11 @@
 # ubi7 images are missing RPM devtools, copy from centos7
 FROM centos:centos7 as centos
+
+# Use the archive repository
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/CentOS-*.repo
+RUN sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/CentOS-*.repo
+RUN sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/CentOS-*.repo
+
 RUN yum update -y && yumdownloader rpm-build && yumdownloader elfutils
 
 # TODO: Add mcr.io retagged images
