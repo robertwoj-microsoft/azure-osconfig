@@ -21,7 +21,9 @@ RUN apt -y update && apt-get -y install \
     gcovr\
     jq \
     bc \
-    file
+    file \
+    libasan6 \
+    libubsan1
 
 WORKDIR /git
 
