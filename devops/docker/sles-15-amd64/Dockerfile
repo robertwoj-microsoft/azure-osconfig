@@ -11,7 +11,9 @@ RUN zypper install -y \
     libtool \
     make \
     libopenssl-devel \
-    rpm-build 
+    rpm-build \
+    libasan8 \
+    libubsan1
 
 WORKDIR /git
 

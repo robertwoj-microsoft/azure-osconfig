@@ -13,7 +13,9 @@ RUN yum install -y --disableplugin=subscription-manager \
     ninja-build \
     openssl-devel \
     openssl-devel \
-    rpm-build
+    rpm-build \
+    libasan \
+    libubsan
 
 WORKDIR /git
 
@@ -27,4 +29,4 @@ RUN cd googletest && cmake . && cmake --build . --parallel --target install && r
 
 # rapidjson
 RUN git clone https://github.com/Tencent/rapidjson --recursive
-RUN cd rapidjson && cmake . && cmake --build . --parallel --target install && rm -rf /git/rapidjson
+RUN cd rapidjson && cmake -DCMAKE_CXX_FLAGS="-Wno-error=array-bounds" . && cmake --build . --parallel --target install && rm -rf /git/rapidjson

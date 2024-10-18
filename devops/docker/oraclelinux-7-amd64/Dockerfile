@@ -11,7 +11,9 @@ RUN yum install -y \
     libtool \
     make \
     openssl-devel \
-    rpm-build 
+    rpm-build \
+    libasan \
+    libubsan
 
 WORKDIR /git
 
