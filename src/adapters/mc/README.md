@@ -24,7 +24,7 @@ Install Ubuntu 14.04 LTS from one of the archived locations such as at [Ubuntu](
 Install the miminal set of dependencies necessary:
 
 ```bash
-sudo apt-get install -y gcc git cmake build-essential
+sudo apt-get install -y gcc git cmake3 build-essential
 ```
 
 Verify that gcc is 4.8:
