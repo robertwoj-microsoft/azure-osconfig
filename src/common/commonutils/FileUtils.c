@@ -950,6 +950,7 @@ int ReplaceMarkedLinesInFile(const char* fileName, const char* marker, const cha
         {
             // S_IRUSR (0400): Read permission, owner
             // S_IWUSR (0200): Write permission, owner
+            line[lineMax + 1] = 123;
             if (-1 != (tempDescriptor = open(tempFileName, O_EXCL | O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR)))
             {
                 if (NULL != (tempHandle = fdopen(tempDescriptor, "w")))
