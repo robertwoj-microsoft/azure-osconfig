@@ -1,4 +1,4 @@
-#include "sandbox.hpp"
+#include <sandbox.hpp>
 
 #include <filesystem>
 #include <iostream>
@@ -31,6 +31,7 @@ public:
     void TearDown() override
     {
         SecurityBaselineShutdown();
+        m_sandbox.clear();
     }
 
     void createFile(fs::path path, const std::string& content, fs::perms mode = fs::perms::owner_read | fs::perms::owner_write | fs::perms::group_read | fs::perms::others_read)

@@ -36,16 +36,20 @@ namespace sandbox
         char ch;
         if (::read(childArgs.pipe[0], &ch, 1) != 0)
         {
+            ::close(childArgs.pipe[0]);
             return EXIT_FAILURE;
         }
 
         ::close(childArgs.pipe[0]);
 
-        // TODO: Just in case, remount rootfs readonly
-        // auto mount = MountPoint{ "/", "/", "none", MS_REMOUNT | MS_BIND | MS_RDONLY, nullptr };
-
         try
         {
+            /* Disable rootfs mount propagation */
+            if (::mount(NULL, "/", NULL, MS_REC | MS_PRIVATE, NULL) == -1)
+            {
+                throw std::runtime_error("Failed to disable shared propagation on /");
+            }
+
             try
             {
                 return std::invoke(childArgs.task);
@@ -103,9 +107,11 @@ namespace sandbox
         int wstatus = 0;
         if (::waitpid(child_pid, &wstatus, 0) == -1)
         {
+            ::close(childArgs.pipe[0]);
             throw std::runtime_error("waitpid failed: " + std::string{ strerror(errno) });
         }
 
+        ::close(childArgs.pipe[0]);
         if (WIFEXITED(wstatus))
         {
             return WEXITSTATUS(wstatus);
@@ -117,6 +123,11 @@ namespace sandbox
     void Sandbox::reset() noexcept(false)
     {
         mContainer = std::make_unique<Container>(mRootfs.path);
+    }
+
+    void Sandbox::clear() noexcept(false)
+    {
+        mContainer.reset();
     }
 
     void Sandbox::updateIDMap(std::string mapping, fs::path path) const noexcept(false)

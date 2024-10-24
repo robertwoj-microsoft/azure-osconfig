@@ -24,6 +24,7 @@ namespace sandbox
 
         int exec(Task task) noexcept(false);
         void reset() noexcept(false);
+        void clear() noexcept(false);
         const std::filesystem::path& getRootfs() const noexcept { return mRootfs.path; }
     private:
         void updateIDMap(std::string mapping, std::filesystem::path path) const noexcept(false);

@@ -9,7 +9,7 @@
 namespace fs = std::filesystem;
 
 TempDir::TempDir() noexcept(false)
-    : TempDir(fs::path{"/tmp/XXXXXX"})
+    : TempDir(fs::path{ "/tmp/XXXXXX" })
 {
 }
 
@@ -17,7 +17,6 @@ TempDir::TempDir(std::filesystem::path _template) noexcept(false)
 {
     char workdir[PATH_MAX];
     ::strcpy(workdir, _template.c_str());
-    // std::cerr << "Creating temporary directory with template: " << workdir << std::endl;
     if (nullptr == ::mkdtemp(workdir))
     {
         throw std::runtime_error("mkdtemp failed: " + std::string{ strerror(errno) });
@@ -27,11 +26,13 @@ TempDir::TempDir(std::filesystem::path _template) noexcept(false)
 
 TempDir::~TempDir() noexcept
 {
+    if (keep)
+        return;
+
     try
     {
         if (fs::exists(path) && fs::is_directory(path))
         {
-            // std::cout << "Removing temporary directory " << path << std::endl;
             for (const auto& entry : fs::directory_iterator(path))
             {
                 fs::remove_all(entry.path());
