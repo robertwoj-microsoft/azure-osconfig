@@ -51,7 +51,7 @@ jobs:
     secrets: inherit
 
   publish:
-    uses: ./.github/workflows/package-publish.yml
+    uses: ./.github/workflows/package-publish-pmc.yml
     needs: sign
     with:
       repo: ${{ inputs.repo }}
