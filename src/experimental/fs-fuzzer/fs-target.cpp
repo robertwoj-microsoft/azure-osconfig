@@ -11,6 +11,7 @@
 #include <string.h>
 #include <limits.h>
 #include <set>
+#include <map>
 
 namespace fs = std::filesystem;
 struct ReportFailure : std::runtime_error
@@ -161,8 +162,12 @@ unpack_out:
     return rc;
 }
 
+static const std::map < std::string, std::string > rules = {
+    { "43119747-263c-2c92-4ce5-726e63259049", "EnsurePermissionsOnEtcSshSshdConfig" },
+    { "35868e8c-97eb-4981-ab79-99b25101cc86", "EnsureSshBestPracticeProtocol" },
+};
 
-static void test(sandbox::Sandbox& sandbox) {
+static void test(sandbox::Sandbox& sandbox, std::string payloadKey) {
     SecurityBaselineInitialize();
     auto handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
     if (nullptr == handle)
@@ -175,173 +180,11 @@ static void test(sandbox::Sandbox& sandbox) {
     char* payload = nullptr;
     int payloadSizeBytes = 0;
 
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcIssue", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcIssueNet", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcHostsAllow", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcHostsDeny", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcSshSshdConfig", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcShadow", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcShadowDash", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcGShadow", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcGShadowDash", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcPasswd", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcPasswdDash", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcGroup", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcGroupDash", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcAnacronTab", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcCronD", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcCronDaily", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcCronHourly", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcCronMonthly", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcCronWeekly", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnEtcMotd", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureInetdNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureXinetdNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRshServerNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNisNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTftpdNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureReadaheadFedoraNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureBluetoothHiddNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIsdnUtilsBaseNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIsdnUtilsKdumpToolsNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIscDhcpdServerNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSendmailNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSldapdNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureBind9NotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDovecotCoreNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAuditdInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePrelinkIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTalkClientIsNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureCronServiceIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAuditdServiceIsRunning", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureKernelSupportForCpuNx", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllTelnetdPackagesUninstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNodevOptionOnHomePartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNodevOptionOnTmpPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNodevOptionOnVarTmpPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNosuidOptionOnTmpPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNosuidOptionOnVarTmpPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoexecOptionOnVarTmpPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoexecOptionOnDevShmPartition", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNodevOptionEnabledForAllRemovableMedia", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoexecOptionEnabledForAllRemovableMedia", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNosuidOptionEnabledForAllRemovableMedia", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoexecNosuidOptionsEnabledForAllNfsMounts", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllEtcPasswdGroupsExistInEtcGroup", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoDuplicateUidsExist", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoDuplicateGidsExist", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoDuplicateUserNamesExist", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoDuplicateGroupsExist", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureShadowGroupIsEmpty", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRootGroupExists", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllAccountsHavePasswords", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNonRootAccountsHaveUniqueUidsGreaterThanZero", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoLegacyPlusEntriesInEtcPasswd", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoLegacyPlusEntriesInEtcShadow", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoLegacyPlusEntriesInEtcGroup", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDefaultRootAccountGroupIsGidZero", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRootIsOnlyUidZeroAccount", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllUsersHomeDirectoriesExist", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureUsersOwnTheirHomeDirectories", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRestrictedUserHomeDirectories", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePasswordHashingAlgorithm", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureMinDaysBetweenPasswordChanges", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureInactivePasswordLockPeriod", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePasswordExpiration", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePasswordExpirationWarning", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSystemAccountsAreNonLogin", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAuthenticationRequiredForSingleUserMode", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDotDoesNotAppearInRootsPath", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRemoteLoginWarningBannerIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureLocalLoginWarningBannerIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSuRestrictedToRootGroup", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDefaultUmaskForAllUsers", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAutomountingDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureKernelCompiledFromApprovedSources", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDefaultDenyFirewallPolicyIsSet", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePacketRedirectSendingIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIcmpRedirectsIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSourceRoutedPacketsIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAcceptingSourceRoutedPacketsIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIgnoringBogusIcmpBroadcastResponses", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIgnoringIcmpEchoPingsToMulticast", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureMartianPacketLoggingIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureReversePathSourceValidationIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    // SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTcpSynCookiesAreEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSystemNotActingAsNetworkSniffer", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllWirelessInterfacesAreDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureIpv6ProtocolIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDccpIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSctpIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledSupportForRds", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTipcIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureZeroconfNetworkingIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePermissionsOnBootloaderConfig", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePasswordReuseIsLimited", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureMountingOfUsbStorageDevicesIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureCoreDumpsAreRestricted", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePasswordCreationRequirements", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureLockoutForFailedPasswordAttempts", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledInstallationOfCramfsFileSystem", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledInstallationOfFreevxfsFileSystem", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledInstallationOfHfsFileSystem", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledInstallationOfHfsplusFileSystem", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDisabledInstallationOfJffs2FileSystem", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureVirtualMemoryRandomizationIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllBootloadersHavePasswordProtectionEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureLoggingIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSyslogPackageIsInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSystemdJournaldServicePersistsLogMessages", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureALoggingServiceIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureFilePermissionsForAllRsyslogLogFiles", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureLoggerConfigurationFilesAreRestricted", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllRsyslogLogFilesAreOwnedByAdmGroup", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllRsyslogLogFilesAreOwnedBySyslogUser", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRsyslogNotAcceptingRemoteMessages", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSyslogRotaterServiceIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTelnetServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRcprshServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureTftpServiceisDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAtCronIsRestrictedToAuthorizedUsers", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshPortIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshBestPracticeProtocol", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshBestPracticeIgnoreRhosts", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshLogLevelIsSet", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshMaxAuthTriesIsSet", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllowUsersIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDenyUsersIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAllowGroupsIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureDenyGroupsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshHostbasedAuthenticationIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshPermitRootLoginIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshPermitEmptyPasswordsIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshClientIntervalCountMaxIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshClientAliveIntervalIsConfigured", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshLoginGraceTimeIsSet", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureOnlyApprovedMacAlgorithmsAreUsed", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSshWarningBannerIsEnabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureUsersCannotSetSshEnvironmentOptions", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAppropriateCiphersForSsh", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureAvahiDaemonServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureCupsServiceisDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePostfixPackageIsUninstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePostfixNetworkListeningIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRpcgssdServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRpcidmapdServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsurePortmapServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNetworkFileSystemServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRpcsvcgssdServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSnmpServerIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRsynServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNisServerIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRshClientNotInstalled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureSmbWithSambaIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureUsersDotFilesArentGroupOrWorldWritable", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoUsersHaveDotForwardFiles", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoUsersHaveDotNetrcFiles", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureNoUsersHaveDotRhostsFiles", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureRloginServiceIsDisabled", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
-    SecurityBaselineMmiGet(handle, "SecurityBaseline", "auditEnsureUnnecessaryAccountsAreRemoved", &payload, &payloadSizeBytes); SecurityBaselineMmiFree(payload);
+    const auto auditRule = "audit" + payloadKey;
+    const auto remediationRule = "remediate" + payloadKey;
+    SecurityBaselineMmiGet(handle, "SecurityBaseline", auditRule.c_str(), &payload, &payloadSizeBytes);
+    SecurityBaselineMmiFree(payload);
+    SecurityBaselineMmiSet(handle, "SecurityBaseline", remediationRule.c_str(), NULL, 0);
 
     SecurityBaselineMmiClose(handle);
     SecurityBaselineShutdown();
@@ -353,11 +196,22 @@ static void test(sandbox::Sandbox& sandbox) {
 extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* input, std::size_t size) {
     static auto sandbox = sandbox::Sandbox{};
 
+    constexpr auto uuidLen = 36;
     auto task = [input, size]() {
         try
         {
+            if (size < uuidLen)
+                return -1;
+
+            auto uuid = std::string(reinterpret_cast<const char*>(input), uuidLen);
+            auto it = rules.find(uuid);
+            if (it == rules.end())
+            {
+                return -1;
+            }
+
             sandbox.reset();
-            if (unpack(input, size) != ARCHIVE_OK)
+            if (unpack(input + uuidLen, size - uuidLen) != ARCHIVE_OK)
             {
                 sandbox.clear();
                 /* In case the archive is invalid, fuzzer won't generate new corpus item if we return -1 */
@@ -384,7 +238,7 @@ extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* input, std::size_t siz
                 /*
                  * Invoke the test
                  */
-                test(sandbox);
+                test(sandbox, std::move(it->second));
 
                 for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
                 {
