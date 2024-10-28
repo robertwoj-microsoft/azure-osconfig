@@ -8,15 +8,18 @@
 
 namespace sandbox
 {
+    /**
+     * @brief The container class is responsible for setting up the root filesystem and the required mount points.
+     */
     class Container
     {
         std::filesystem::path mRootfs;
 
         /* TODO: Overlay could be optional */
-        TempDir mWorkDir;
-        TempDir mUpperDir;
-        TempDir mMergeDir;
-        MountPoint mOverlay;
+        // TempDir mWorkDir;
+        // TempDir mUpperDir;
+        // TempDir mMergeDir;
+        // MountPoint mOverlay;
 
         /* Keeps the old root filesystem mountpoint to allow us getting back */
         TempDir mOldRootfs;
@@ -38,7 +41,8 @@ namespace sandbox
         ~Container() noexcept;
 
     private:
-        std::string makeOverlayOptions() const noexcept;
+        // std::string makeOverlayOptions() const noexcept;
+        void cleanupRootfs() noexcept;
     };
 } // namespace sandbox
 

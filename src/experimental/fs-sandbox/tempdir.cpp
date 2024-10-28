@@ -26,9 +26,6 @@ TempDir::TempDir(std::filesystem::path _template) noexcept(false)
 
 TempDir::~TempDir() noexcept
 {
-    if (keep)
-        return;
-
     try
     {
         if (fs::exists(path) && fs::is_directory(path))

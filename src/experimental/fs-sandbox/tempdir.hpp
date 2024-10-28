@@ -5,7 +5,6 @@
 
 struct TempDir {
     std::filesystem::path path;
-    bool keep = false;
 
     explicit TempDir() noexcept(false);
     explicit TempDir(std::filesystem::path _template) noexcept(false);
