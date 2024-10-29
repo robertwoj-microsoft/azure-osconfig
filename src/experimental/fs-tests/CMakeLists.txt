@@ -20,5 +20,4 @@ include_directories(${CMAKE_SOURCE_DIR}/experimental/fs-sandbox)
 
 # Add the executable
 add_executable(fs-tests ${SOURCES} ${HEADERS})
-
 target_link_libraries(fs-tests PRIVATE fs-sandbox commonutils logging mpiclient parsonlib asb gtest gtest_main pthread securitybaselinelib logging commonutils)

@@ -26,6 +26,7 @@ namespace sandbox
         void reset() noexcept(false);
         void clear() noexcept(false);
         const std::filesystem::path& getRootfs() const noexcept { return mRootfs.path; }
+        std::filesystem::path getOldRootfs() const noexcept { return mContainer ? mContainer->getOldRootfs() : std::filesystem::path("/"); }
     private:
         void updateIDMap(std::string mapping, std::filesystem::path path) const noexcept(false);
         void denySetgroups(pid_t childPid) const noexcept(false);

@@ -25,8 +25,8 @@ cmake \
 	-DBUILD_EXPERIMENTAL=ON \
 	-DCMAKE_C_COMPILER=/usr/bin/clang-15 \
 	-DCMAKE_CXX_COMPILER=/usr/bin/clang++-15 \
-	-DCMAKE_C_FLAGS="-fsanitize=fuzzer-no-link,address,undefined -g -O1 -fno-omit-frame-pointer" \
-	-DCMAKE_CXX_FLAGS="-fsanitize=fuzzer-no-link,address,undefined -g -O1 -fno-omit-frame-pointer" \
+	-DCMAKE_C_FLAGS="-fsanitize=fuzzer-no-link,address,undefined -g -O1 -fno-omit-frame-pointer -fno-common" \
+	-DCMAKE_CXX_FLAGS="-fsanitize=fuzzer-no-link,address,undefined -g -O1 -fno-omit-frame-pointer -fno-common" \
 	${sources_path}/src \
 	|| die "Failed to run cmake"
 

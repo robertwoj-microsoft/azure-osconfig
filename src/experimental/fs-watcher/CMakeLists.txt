@@ -19,3 +19,4 @@ set(SOURCES
 
 # Add the executable
 add_executable(fs-watcher ${SOURCES} ${HEADERS})
+

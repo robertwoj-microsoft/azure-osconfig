@@ -40,6 +40,7 @@ namespace sandbox
         Container& operator=(Container&&) = delete;
         ~Container() noexcept;
 
+        std::filesystem::path getOldRootfs() const noexcept { return std::filesystem::path("/") / mOldRootfs.path.filename(); }
     private:
         // std::string makeOverlayOptions() const noexcept;
         void cleanupRootfs() noexcept;

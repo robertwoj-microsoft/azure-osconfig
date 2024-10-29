@@ -85,8 +85,8 @@ namespace sandbox
             throw std::runtime_error("pipe failed: " + std::string{ strerror(errno) });
         }
 
-        int flags = CLONE_NEWNS | CLONE_NEWUSER | CLONE_NEWPID | CLONE_VM;
-        auto child_pid = ::clone(childProcess, reinterpret_cast<void*>(mChildStack + cStackSize), flags | SIGCHLD, reinterpret_cast<void*>(&childArgs));
+        int flags = CLONE_NEWNS | CLONE_NEWUSER | CLONE_NEWPID | SIGCHLD;
+        auto child_pid = ::clone(childProcess, reinterpret_cast<void*>(mChildStack + cStackSize), flags, reinterpret_cast<void*>(&childArgs));
         if (child_pid == -1)
         {
             throw std::runtime_error("clone failed: " + std::string{ strerror(errno) });

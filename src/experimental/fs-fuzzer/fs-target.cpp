@@ -12,45 +12,15 @@
 #include <limits.h>
 #include <set>
 #include <map>
+#include <csignal>
+
+extern "C" int LLVMFuzzerRunDriver(int*, char***, int (*)(const uint8_t*, size_t));
 
 namespace fs = std::filesystem;
 struct ReportFailure : std::runtime_error
 {
     ReportFailure(const std::string& message) : std::runtime_error(message) {}
 };
-
-// struct Context
-// {
-//     MMI_HANDLE handle;
-//     sandbox::Sandbox m_sandbox;
-// public:
-//     Context() {
-//         SecurityBaselineInitialize();
-//         handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
-//         if(nullptr == handle) {
-//             std::cerr << "SecurityBaselineMmiOpen failed" << std::endl;
-//             SecurityBaselineShutdown();
-//             exit(-1);
-//         }
-//     }
-
-//     ~Context() {
-//         SecurityBaselineMmiClose(handle);
-//         SecurityBaselineShutdown();
-//     }
-
-//     MMI_HANDLE handle() const {
-//         return handle;
-//     }
-
-//     sandbox::Sandbox& sandbox() {
-//         return m_sandbox;
-//     }
-
-//     int exec(sandbox::Task task) {
-//         return m_sandbox.exec(task);
-//     }
-// };
 
 /*
  * Tar file unpacking code is based on libarchive example:
@@ -167,7 +137,7 @@ static const std::map < std::string, std::string > rules = {
     { "35868e8c-97eb-4981-ab79-99b25101cc86", "EnsureSshBestPracticeProtocol" },
 };
 
-static void test(sandbox::Sandbox& sandbox, std::string payloadKey) {
+static void test(std::string payloadKey) noexcept {
     SecurityBaselineInitialize();
     auto handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
     if (nullptr == handle)
@@ -190,143 +160,138 @@ static void test(sandbox::Sandbox& sandbox, std::string payloadKey) {
     SecurityBaselineShutdown();
 }
 
+static auto g_sandbox = sandbox::Sandbox{};
+
 /**
  * @brief Fuzzing entry point
  */
-extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* input, std::size_t size) {
-    static auto sandbox = sandbox::Sandbox{};
+static const int c_skip_input = -1;
+static const int c_valid_input = 0;
+static const int c_error = 1;
 
-    constexpr auto uuidLen = 36;
-    auto task = [input, size]() {
-        try
-        {
-            if (size < uuidLen)
-                return -1;
+static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
+{
+    constexpr std::size_t uuidLen = 36;
+    if (size < uuidLen)
+        return c_skip_input;
 
-            auto uuid = std::string(reinterpret_cast<const char*>(input), uuidLen);
-            auto it = rules.find(uuid);
-            if (it == rules.end())
-            {
-                return -1;
-            }
-
-            sandbox.reset();
-            if (unpack(input + uuidLen, size - uuidLen) != ARCHIVE_OK)
-            {
-                sandbox.clear();
-                /* In case the archive is invalid, fuzzer won't generate new corpus item if we return -1 */
-                return -1;
-            }
-
-            /* Isolate child process for graceful cleanup */
-            auto pid = fork();
-            if (pid == -1)
-            {
-                std::cerr << "Failed to fork: " << strerror(errno) << std::endl;
-                sandbox.clear();
-                return -1;
-            }
-
-            if (pid == 0)
-            {
-                std::set<int> descriptors;
-                for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
-                {
-                    descriptors.insert(atoi(entry.path().filename().c_str()));
-                }
-
-                /*
-                 * Invoke the test
-                 */
-                test(sandbox, std::move(it->second));
-
-                for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
-                {
-                    if (std::find(descriptors.begin(), descriptors.end(), atoi(entry.path().filename().c_str())) != descriptors.end())
-                    {
-                        continue;
-                    }
-
-                    char path[PATH_MAX];
-                    memset(path, 0, sizeof(path));
-                    if (readlink(entry.path().c_str(), path, sizeof(path)) == -1)
-                    {
-                        std::cerr << "readlink failed: " << strerror(errno) << std::endl;
-                        continue;
-                    }
-
-                    std::cerr << "Open at exit: " << path << " (" << entry.path() << ")" << std::endl;
-                    return EXIT_FAILURE;
-                }
-
-                for(const auto& entry : fs::directory_iterator("/tmp"))
-                {
-                    auto prefix = entry.path().filename().string().substr(0, ::strlen("~osconfig"));
-                    std::transform(prefix.begin(), prefix.end(), prefix.begin(), ::tolower);
-                    if(prefix == "~osconfig")
-                    {
-                        std::cerr << "Leftover file found: " << entry.path() << std::endl;
-                        return EXIT_FAILURE;
-                    }
-                }
-                return 0;
-            }
-            else
-            {
-                // Parent process
-                int wstatus = 0;
-                if (::waitpid(pid, &wstatus, 0) == -1)
-                {
-                    std::cerr << "waitpid failed: " << strerror(errno) << std::endl;
-                    sandbox.clear();
-                    return -1;
-                }
-
-                if (!WIFEXITED(wstatus) || 0 != WEXITSTATUS(wstatus))
-                {
-                    throw ReportFailure("Child process exited abnormally");
-                }
-            }
-        }
-        catch (const ReportFailure& e)
-        {
-            sandbox.clear();
-            return EXIT_FAILURE;
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Failed to execute test: " << e.what() << std::endl;
-            sandbox.clear();
-            return -1;
-        }
-
-        sandbox.clear();
-        return 0;
-    };
+    auto uuid = std::string(reinterpret_cast<const char*>(input), uuidLen);
+    auto it = rules.find(uuid);
+    if (it == rules.end())
+    {
+        return c_skip_input;
+    }
 
     try
     {
-        auto result = sandbox.exec(task);
-        if (result == EXIT_FAILURE)
+        g_sandbox.reset();
+        if (unpack(input + uuidLen, size - uuidLen) != ARCHIVE_OK)
         {
-            throw ReportFailure("Taks process crashed");
+            /* In case the archive is invalid, fuzzer won't generate new corpus item if we return -1 */
+            g_sandbox.clear();
+            return c_skip_input;
         }
 
-        /* Propagate exit code fron the task callback */
-        return result;
+        /*
+         * Change directory to /corpus on the original filesystem, otherwise it will be lost
+         */
+        auto corpusPath = g_sandbox.getOldRootfs() / "corpus";
+        if (::chdir(corpusPath.c_str()) == -1)
+        {
+            std::cerr << "Failed to change directory to /corpus: " << strerror(errno) << std::endl;
+            g_sandbox.clear();
+            return c_skip_input;
+        }
+
+        std::set<int> descriptors;
+        for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
+        {
+            descriptors.insert(atoi(entry.path().filename().c_str()));
+        }
+
+        /*
+         * Invoke the test
+         */
+        test(std::move(it->second));
+
+        for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
+        {
+            if (std::find(descriptors.begin(), descriptors.end(), atoi(entry.path().filename().c_str())) != descriptors.end())
+            {
+                continue;
+            }
+
+            char path[PATH_MAX];
+            ::memset(path, 0, sizeof(path));
+            if (::readlink(entry.path().c_str(), path, sizeof(path)) == -1)
+            {
+                std::cerr << "readlink failed: " << strerror(errno) << std::endl;
+                continue;
+            }
+
+            throw ReportFailure(std::string{ "Open at exit: " } + path + " (" + entry.path().string() + ")");
+        }
+
+        for (const auto& entry : fs::directory_iterator("/tmp"))
+        {
+            auto prefix = entry.path().filename().string().substr(0, ::strlen("~osconfig"));
+            std::transform(prefix.begin(), prefix.end(), prefix.begin(), ::tolower);
+            if (prefix == "~osconfig")
+            {
+                throw ReportFailure("Leftover file found: " + entry.path().string());
+            }
+        }
+
+        g_sandbox.clear();
     }
     catch (const ReportFailure& e)
     {
-        /* Fuzzer reports crash here */
+        std::cerr << "Reporting failure: " << e.what() << std::endl;
+        g_sandbox.clear();
         throw;
     }
     catch (const std::exception& e)
     {
-        std::cerr << "Failed to execute task: " << e.what() << std::endl;
-        /* Avoid creating new inputs */
-        return -1;
+        std::cerr << "Failed to execute test: " << e.what() << std::endl;
+        g_sandbox.clear();
+        return c_skip_input;
     }
 
-    /* Possibly new corpus input will be created now */
-    return 0;
+    return c_valid_input;
+}
+
+static void setup_sigint_handler(void (*handler)(int)) {
+    struct sigaction sa;
+    sa.sa_handler = handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    if (sigaction(SIGINT, &sa, nullptr) == -1)
+    {
+        std::cerr << "Failed to set up SIGINT handler: " << strerror(errno) << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+}
+
+int main(int argc, char** argv)
+{
+    auto task = [&]() -> int {
+        /*
+         * Restore default hadnler, libfuzzer installs its own handlers
+         */
+        setup_sigint_handler(SIG_DFL);
+
+        try
+        {
+            return LLVMFuzzerRunDriver(&argc, &argv, target);
+        }
+        catch (const std::exception& e)
+        {
+            std::cerr << "Exception: " << e.what() << std::endl;
+            return c_error;
+        }
+        };
+
+    /* Ignore interrupt here, let libfuzzer decide what to do */
+    setup_sigint_handler(SIG_IGN);
+    return g_sandbox.exec(task);
 }
