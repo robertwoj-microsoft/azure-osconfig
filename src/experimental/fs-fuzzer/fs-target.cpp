@@ -13,6 +13,7 @@
 #include <set>
 #include <map>
 #include <csignal>
+#include <fcntl.h>
 
 extern "C" int LLVMFuzzerRunDriver(int*, char***, int (*)(const uint8_t*, size_t));
 
@@ -132,9 +133,14 @@ unpack_out:
     return rc;
 }
 
-static const std::map < std::string, std::string > rules = {
-    { "43119747-263c-2c92-4ce5-726e63259049", "EnsurePermissionsOnEtcSshSshdConfig" },
-    { "35868e8c-97eb-4981-ab79-99b25101cc86", "EnsureSshBestPracticeProtocol" },
+struct rule {
+    std::string payloadKey;
+    fs::path path;
+};
+
+static const std::map < std::string, rule > rules = {
+    { "43119747-263c-2c92-4ce5-726e63259049", rule {"auditEnsurePermissionsOnEtcSshSshdConfig", "/etc/ssh/sshd_config"} },
+    { "35868e8c-97eb-4981-ab79-99b25101cc86", rule { "EnsureSshBestPracticeProtocol", "/etc/ssh/sshd_config" } },
 };
 
 static void test(std::string payloadKey) noexcept {
@@ -172,7 +178,8 @@ static const int c_error = 1;
 static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
 {
     constexpr std::size_t uuidLen = 36;
-    if (size < uuidLen)
+    constexpr std::size_t perms_size = 4;
+    if (size < uuidLen + perms_size)
         return c_skip_input;
 
     auto uuid = std::string(reinterpret_cast<const char*>(input), uuidLen);
@@ -181,16 +188,13 @@ static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
     {
         return c_skip_input;
     }
+    input += uuidLen;
+    size -= uuidLen;
+    auto& rule = it->second;
 
     try
     {
         g_sandbox.reset();
-        if (unpack(input + uuidLen, size - uuidLen) != ARCHIVE_OK)
-        {
-            /* In case the archive is invalid, fuzzer won't generate new corpus item if we return -1 */
-            g_sandbox.clear();
-            return c_skip_input;
-        }
 
         /*
          * Change directory to /corpus on the original filesystem, otherwise it will be lost
@@ -198,10 +202,57 @@ static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
         auto corpusPath = g_sandbox.getOldRootfs() / "corpus";
         if (::chdir(corpusPath.c_str()) == -1)
         {
-            std::cerr << "Failed to change directory to /corpus: " << strerror(errno) << std::endl;
+            throw std::runtime_error(std::string{ "Failed to change directory to " } + corpusPath.string() + std::string{ ": " } + strerror(errno));
+        }
+
+        int perms = std::stoi(std::string{ reinterpret_cast<const char*>(input), perms_size }, nullptr, 8);
+        if (perms < 0 | perms > 7777)
+        {
             g_sandbox.clear();
             return c_skip_input;
         }
+        input += perms_size;
+        size -= perms_size;
+
+        /* If perms are 0, skip file creation */
+        if (perms > 0)
+        {
+            auto ec = std::error_code{};
+            if (!fs::create_directories(rule.path.parent_path(), ec))
+            {
+                throw std::runtime_error(std::string{ "Failed to create parent directories: " } + ec.message());
+            }
+
+            auto fd = ::open(rule.path.c_str(), O_CREAT | O_EXCL | O_WRONLY, perms);
+            if(fd == -1)
+            {
+                throw std::runtime_error(std::string{ "Failed to create parent directories: " } + strerror(errno));
+            }
+
+            while (size)
+            {
+                auto w = ::write(fd, input, size);
+                if(w == -1)
+                {
+                    if(errno == EINTR)
+                        continue;
+                    ::close(fd);
+                    throw std::runtime_error(std::string{ "Failed to write to file: " } + strerror(errno));
+                }
+
+                input += w;
+                size -= w;
+            }
+
+            ::close(fd);
+        }
+
+        // if (unpack(input + uuidLen, size - uuidLen) != ARCHIVE_OK)
+        // {
+        //     /* In case the archive is invalid, fuzzer won't generate new corpus item if we return -1 */
+        //     g_sandbox.clear();
+        //     return c_skip_input;
+        // }
 
         std::set<int> descriptors;
         for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
@@ -212,7 +263,7 @@ static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
         /*
          * Invoke the test
          */
-        test(std::move(it->second));
+        test(std::move(rule.payloadKey));
 
         for (const auto& entry : fs::directory_iterator("/proc/self/fd"))
         {
@@ -238,7 +289,7 @@ static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
             std::transform(prefix.begin(), prefix.end(), prefix.begin(), ::tolower);
             if (prefix == "~osconfig")
             {
-                throw ReportFailure("Leftover file found: " + entry.path().string());
+                throw ReportFailure(std::string{ "Leftover file found: " } + entry.path().string());
             }
         }
 
@@ -248,13 +299,18 @@ static int target(const std::uint8_t* input, std::size_t size) noexcept(false)
     {
         std::cerr << "Reporting failure: " << e.what() << std::endl;
         g_sandbox.clear();
-        throw;
+        __builtin_trap();
+    }
+    catch (const std::invalid_argument& e)
+    {
+        g_sandbox.clear();
+        return c_skip_input;
     }
     catch (const std::exception& e)
     {
         std::cerr << "Failed to execute test: " << e.what() << std::endl;
         g_sandbox.clear();
-        return c_skip_input;
+        __builtin_trap();
     }
 
     return c_valid_input;
@@ -279,17 +335,8 @@ int main(int argc, char** argv)
          * Restore default hadnler, libfuzzer installs its own handlers
          */
         setup_sigint_handler(SIG_DFL);
-
-        try
-        {
-            return LLVMFuzzerRunDriver(&argc, &argv, target);
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Exception: " << e.what() << std::endl;
-            return c_error;
-        }
-        };
+        return LLVMFuzzerRunDriver(&argc, &argv, target);
+    };
 
     /* Ignore interrupt here, let libfuzzer decide what to do */
     setup_sigint_handler(SIG_IGN);
