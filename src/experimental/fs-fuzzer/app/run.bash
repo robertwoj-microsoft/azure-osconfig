@@ -21,4 +21,4 @@ if [ ! -d ${corpus_path} ]; then
 fi
 
 cd ${corpus_path}
-ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer-15 ${build_path}/experimental/fs-fuzzer/fs-fuzzer -use_value_profile=0 $@ >/dev/null
+ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer-15 ${build_path}/experimental/fs-fuzzer/payload-fuzzer -use_value_profile=1 $@ >/dev/null

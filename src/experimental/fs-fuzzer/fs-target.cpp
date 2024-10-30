@@ -332,7 +332,7 @@ int main(int argc, char** argv)
 {
     auto task = [&]() -> int {
         /*
-         * Restore default hadnler, libfuzzer installs its own handlers
+         * Restore default handler, libfuzzer installs its own handlers
          */
         setup_sigint_handler(SIG_DFL);
         return LLVMFuzzerRunDriver(&argc, &argv, target);
