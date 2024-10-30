@@ -13,7 +13,7 @@ namespace sandbox
      */
     class Container
     {
-        std::filesystem::path mRootfs;
+        TempDir mRootfs;
 
         /* TODO: Overlay could be optional */
         // TempDir mWorkDir;
@@ -33,13 +33,14 @@ namespace sandbox
         std::unique_ptr<MountPoint> mTmp;
         std::unique_ptr<MountPoint> mHome;
     public:
-        explicit Container(std::filesystem::path rootfs) noexcept(false);
+        explicit Container() noexcept(false);
         Container(const Container&) = delete;
         Container& operator=(const Container&) = delete;
         Container(Container&&) = delete;
         Container& operator=(Container&&) = delete;
         ~Container() noexcept;
 
+        const std::filesystem::path& getRootfs() const noexcept { return mRootfs.path; }
         std::filesystem::path getOldRootfs() const noexcept { return std::filesystem::path("/") / mOldRootfs.path.filename(); }
     private:
         // std::string makeOverlayOptions() const noexcept;

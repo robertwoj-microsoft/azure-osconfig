@@ -18,24 +18,24 @@ namespace sandbox
     //     + ",workdir=" + std::string{ mWorkDir.path };
     // }
 
-    Container::Container(std::filesystem::path rootfs) noexcept(false)
-        : mRootfs{ std::move(rootfs) }
+    Container::Container() noexcept(false)
+        : mRootfs{ "/tmp/rootfs.XXXXXX" }
         // , mWorkDir{ "/tmp/workdir.XXXXXX" }
         // , mUpperDir{ "/tmp/upperdir.XXXXXX" }
         // , mMergeDir{ "/tmp/mergedir.XXXXXX" }
         // , mOverlay{ "overlay", mMergeDir.path, "overlay", 0, makeOverlayOptions().c_str() }
-        , mOldRootfs{ mRootfs / "rootfs.XXXXXX" }
+        , mOldRootfs{ mRootfs.path / "rootfs.XXXXXX" }
     {
         /* The temporary rootfs must be a mount point for the pivot_root syscall to succeed */
-        if (::mount(mRootfs.c_str(), mRootfs.c_str(), NULL, MS_BIND, NULL) == -1)
+        if (::mount(mRootfs.path.c_str(), mRootfs.path.c_str(), NULL, MS_BIND, NULL) == -1)
         {
             throw std::runtime_error("New root is not a mount point");
         }
 
         /* Use the pivot_root function in order to keep the old root filesystem reference */
-        if (::syscall(SYS_pivot_root, mRootfs.c_str(), mOldRootfs.path.c_str()) != 0)
+        if (::syscall(SYS_pivot_root, mRootfs.path.c_str(), mOldRootfs.path.c_str()) != 0)
         {
-            if(::umount2(mRootfs.c_str(), MNT_DETACH) == -1)
+            if (::umount2(mRootfs.path.c_str(), MNT_DETACH) == -1)
             {
                 std::cerr << "ERROR: Failed to unmount new rootfs: " << std::strerror(errno) << std::endl;
             }

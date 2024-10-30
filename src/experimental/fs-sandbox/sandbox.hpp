@@ -13,7 +13,6 @@ namespace sandbox
         static constexpr std::size_t cStackSize = 1024 * 1024;
         char mChildStack[cStackSize];
         std::unique_ptr<Container> mContainer;
-        TempDir mRootfs;
     public:
         Sandbox() noexcept(false);
         Sandbox(const Sandbox&) = delete;
@@ -25,7 +24,7 @@ namespace sandbox
         int exec(Task task) noexcept(false);
         void reset() noexcept(false);
         void clear() noexcept(false);
-        const std::filesystem::path& getRootfs() const noexcept { return mRootfs.path; }
+        std::filesystem::path getRootfs() const noexcept { return mContainer ? mContainer->getRootfs() : std::filesystem::path("/"); }
         std::filesystem::path getOldRootfs() const noexcept { return mContainer ? mContainer->getOldRootfs() : std::filesystem::path("/"); }
     private:
         void updateIDMap(std::string mapping, std::filesystem::path path) const noexcept(false);

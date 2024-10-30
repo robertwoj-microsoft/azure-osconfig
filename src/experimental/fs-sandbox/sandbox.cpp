@@ -72,7 +72,6 @@ namespace sandbox
     }
 
     Sandbox::Sandbox() noexcept(false)
-        : mRootfs{ "/tmp/rootfs.XXXXXX" }
     {
     }
 
@@ -122,7 +121,7 @@ namespace sandbox
 
     void Sandbox::reset() noexcept(false)
     {
-        mContainer = std::make_unique<Container>(mRootfs.path);
+        mContainer = std::make_unique<Container>();
     }
 
     void Sandbox::clear() noexcept(false)
