@@ -654,6 +654,11 @@
   {
     "ObjectType": "Desired",
     "ComponentName": "SecurityBaseline",
+    "ObjectName": "remediateEnsureCronServiceIsEnabled"
+  },
+  {
+    "ObjectType": "Desired",
+    "ComponentName": "SecurityBaseline",
     "ObjectName": "remediateEnsurePermissionsOnEtcAnacronTab",
     "Payload": "600"
   },
@@ -777,11 +782,6 @@
     "ObjectType": "Desired",
     "ComponentName": "SecurityBaseline",
     "ObjectName": "remediateEnsureTalkClientIsNotInstalled"
-  },
-  {
-    "ObjectType": "Desired",
-    "ComponentName": "SecurityBaseline",
-    "ObjectName": "remediateEnsureCronServiceIsEnabled"
   },
   {
     "ObjectType": "Desired",
