@@ -17,6 +17,7 @@ static bool g_tdnfIsPresent = false;
 static bool g_dnfIsPresent = false;
 static bool g_yumIsPresent = false;
 static bool g_zypperIsPresent = false;
+static bool g_aptGetUpdateExecuted = false;
 
 int IsPresent(const char* what, void* log)
 {
@@ -178,15 +179,31 @@ int CheckPackageNotInstalled(const char* packageName, char** reason, void* log)
     return result;
 }
 
+static void RefreshAptMetadata(void* log)
+{
+    char command[32];
+    if (g_aptGetUpdateExecuted)
+    {
+        return;
+    }
+
+    snprintf(command, sizeof(command), "%s update", g_aptGet);
+    int status = ExecuteCommand(NULL, command, false, false, 0, 0, NULL, NULL, log);
+
+    OsConfigLogInfo(log, "RefreshAptMetadata: command '%s' complete with %d (errno: %d)", command, status, errno);
+    g_aptGetUpdateExecuted = true;
+}
+
 int InstallOrUpdatePackage(const char* packageName, void* log)
 {
     const char* commandTemplate = "%s install -y %s";
     int status = ENOENT;
 
     CheckPackageManagersPresence(log);
-    
+
     if (g_aptGetIsPresent)
     {
+        RefreshAptMetadata(log);
         status = CheckOrInstallPackage(commandTemplate, g_aptGet, packageName, log);
     }
     else if (g_tdnfIsPresent)
