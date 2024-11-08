@@ -133,6 +133,13 @@ $baseline_release_json =(Get-Content -Path $baseline_release_policy -Raw | Conve
 # update the policy package url and update json contentHash to mach the  policy
 $baseline_release_json.properties.metadata.guestConfiguration.contentUri=$baseline_release_url
 $baseline_release_json.properties.metadata.guestConfiguration.contentHash=$baseline_release_hash
+# And update all policy rules GuestConfiguration URL's and checksum to match override, without it strange errors can occur
+$baseline_release_json.properties.policyRule.then.details.deployment.properties.template.resources | ForEach-Object -Process {
+    if ($_.properties.guestConfiguration.name -eq "AzureLinuxBaseline" )  {
+        $_.properties.guestConfiguration.contentUri=$baseline_release_url
+        $_.properties.guestConfiguration.contentHash=$baseline_release_hash
+    }
+}
 # write the policy json to $baseline_release_policy_fix
 $baseline_release_json | ConvertTo-Json -Depth 32 | Set-Content -Path $baseline_release_policy_fix
 
