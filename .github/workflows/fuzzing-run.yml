@@ -48,6 +48,7 @@ jobs:
           mkdir /tmp/artifacts
           cp -r ${{ steps.download.outputs.download-path }}/src/fuzzer/seed_corpus/* /tmp/corpus
           sudo apt install -y gdb
+          sudo apt install -y strace
 
       - name: Run osconfig-fuzzer
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
@@ -62,8 +63,13 @@ jobs:
           mkdir -p ${core_location}
           echo "Core location: ${core_location}"
           ldd ./osconfig-fuzzer
+          sudo dmesg
           set -o pipefail
-          ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log
+          echo "core /tmp/cores" >> commands.txt
+          echo "run -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus" >> commands.txt
+          echo "quit" >> commands.txt
+          gdb ./osconfig-fuzzer -batch -x commands.txt
+          #./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log
 
       - name: Print stack trace
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
