@@ -68,4 +68,5 @@ jobs:
           path: |
             /tmp/osconfig-fuzzer.log
             /tmp/osconfig-stdout.log
+            /usr/share/apport/apport
             /tmp/artifacts
