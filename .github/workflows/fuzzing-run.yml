@@ -52,7 +52,10 @@ jobs:
       - name: Run osconfig-fuzzer
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
         run: |
-          echo "${BASH_SOURCE[0]}"
+          cat "${BASH_SOURCE[0]}"
+          echo "========================================"
+          ulimit -c unlimited
+          ulimit -c
           sudo bash -c 'echo /tmp/cores/osconfig-fuzzer.%e.%p > /proc/sys/kernel/core_pattern'
           sudo apt install -y gdb
           core_location="/tmp/cores/"
