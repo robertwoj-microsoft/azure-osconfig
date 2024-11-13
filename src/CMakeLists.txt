@@ -13,6 +13,7 @@ set(MINOR_VERSION "0" CACHE STRING "Minor version")
 set(PATCH_VERSION "5" CACHE STRING "Patch version")
 
 option(BUILD_ADAPTERS "Build OSConfig Adapters" ON)
+option(BUILD_ADAPTER_PNP "Build OSConfig Adapters pnp" ON)
 option(BUILD_MODULES "Build OSConfig Modules" ON)
 option(BUILD_PLATFORM "Build OSConfig Platform" ON)
 option(BUILD_TESTS "Build test collateral" ON)
