@@ -47,6 +47,7 @@ jobs:
           mkdir /tmp/corpus
           mkdir /tmp/artifacts
           cp -r ${{ steps.download.outputs.download-path }}/src/fuzzer/seed_corpus/* /tmp/corpus
+          cat /proc/sys/kernel/core_pattern
 
       - name: Run osconfig-fuzzer
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
