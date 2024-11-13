@@ -55,6 +55,7 @@ jobs:
         run: |
           core_location=$(cat /proc/sys/kernel/core_pattern | cut -d '|' -f 2 | cut -d ' ' -f 1)
           echo "Core location: ${core_location}"
+          ldd ./osconfig-fuzzer
           set -o pipefail && ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log
           ls -l ${core_location}
           echo "bt" > commands.txt
@@ -69,4 +70,5 @@ jobs:
             /tmp/osconfig-fuzzer.log
             /tmp/osconfig-stdout.log
             /usr/share/apport/apport
+            ${{ steps.download.outputs.download-path }}/fuzzer/osconfig-fuzzer
             /tmp/artifacts
