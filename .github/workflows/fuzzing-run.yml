@@ -64,6 +64,7 @@ jobs:
 
       - name: Print stack trace
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
+        if: failure()
         run: |
           core_location="/tmp/cores/"
           ls -l ${core_location}
