@@ -67,7 +67,7 @@ jobs:
           echo "run /tmp/corpus" >> commands.txt
           echo "quit" >> commands.txt
           gdb -batch -x commands.txt ./osconfig-fuzzer
-          ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log
+          (./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log)
 
       - name: Print stack trace
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
