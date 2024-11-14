@@ -36,20 +36,27 @@ struct Context
 public:
     Context() noexcept(false)
     {
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
         char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
         if(::mkdtemp(path) == nullptr)
         {
+            fprintf(stderr, "Context::Context:%d\n", __LINE__);
             throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
         }
         tempdir = path;
 
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
         SecurityBaselineInitialize();
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
         handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
         if (handle == nullptr)
         {
+            fprintf(stderr, "Context::Context:%d\n", __LINE__);
             SecurityBaselineShutdown();
             throw std::runtime_error("failed to initialized SecurityBaseline library");
         }
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
     }
 
     ~Context() noexcept
