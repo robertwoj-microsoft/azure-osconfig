@@ -42,7 +42,7 @@ jobs:
       - name: Install prerequisites
         run: |
           sudo apt update
-          sudo apt install -y clang
+          sudo apt install -y clang-15
           sudo chmod +x ${{ steps.download.outputs.download-path }}/fuzzer/osconfig-fuzzer
           mkdir /tmp/corpus
           mkdir /tmp/artifacts
