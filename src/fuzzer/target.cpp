@@ -36,40 +36,40 @@ struct Context
 public:
     Context() noexcept(false)
     {
-        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        // char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
-        // if(::mkdtemp(path) == nullptr)
-        // {
-        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        //     throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
-        // }
-        // tempdir = path;
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
+        if(::mkdtemp(path) == nullptr)
+        {
+            fprintf(stderr, "Context::Context:%d\n", __LINE__);
+            throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
+        }
+        tempdir = path;
 
-        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        // SecurityBaselineInitialize();
-        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        // handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
-        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        // if (handle == nullptr)
-        // {
-        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        //     SecurityBaselineShutdown();
-        //     throw std::runtime_error("failed to initialized SecurityBaseline library");
-        // }
-        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        SecurityBaselineInitialize();
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        if (handle == nullptr)
+        {
+            fprintf(stderr, "Context::Context:%d\n", __LINE__);
+            SecurityBaselineShutdown();
+            throw std::runtime_error("failed to initialized SecurityBaseline library");
+        }
+        fprintf(stderr, "Context::Context:%d\n", __LINE__);
     }
 
     ~Context() noexcept
     {
-        // ::remove(tempdir.c_str());
-        // SecurityBaselineMmiClose(handle);
-        // SecurityBaselineShutdown();
+        ::remove(tempdir.c_str());
+        SecurityBaselineMmiClose(handle);
+        SecurityBaselineShutdown();
     }
 
     std::string nextTempfileName() const noexcept
     {
         static int counter = 0;
-        return tempdir + "." + std::to_string(counter++);
+        return tempdir + "/" + std::to_string(counter++);
     }
 
     std::string makeTempfile(const char* data, std::size_t size) const noexcept(false)
@@ -933,10 +933,10 @@ static int CheckOrEnsureUsersDontHaveDotFiles_target(Context& context, const cha
 
 static int CheckUserAccountsNotFound_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    // auto usernames = std::string(data, size);
-    // char* reason = nullptr;
-    // CheckUserAccountsNotFound(usernames.c_str(), &reason, nullptr);
-    // free(reason);
+    auto usernames = std::string(data, size);
+    char* reason = nullptr;
+    CheckUserAccountsNotFound(usernames.c_str(), &reason, nullptr);
+    free(reason);
     return 0;
 }
 
@@ -1046,25 +1046,26 @@ static const std::map<std::string, int (*)(Context&, const char*, std::size_t)> 
 
 // libfuzzer entry point
 extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size) {
-    static Context context;
+    return 0;
+    // static Context context;
 
-    const auto* input = reinterpret_cast<const char*>(data);
-    const auto* prefix = reinterpret_cast<const char*>(std::memchr(input, '.', size));
-    if (prefix == nullptr)
-    {
-        // Separator not found, skip the input
-        return c_skip_input;
-    }
+    // const auto* input = reinterpret_cast<const char*>(data);
+    // const auto* prefix = reinterpret_cast<const char*>(std::memchr(input, '.', size));
+    // if (prefix == nullptr)
+    // {
+    //     // Separator not found, skip the input
+    //     return c_skip_input;
+    // }
 
-    // Include the separator
-    prefix++;
-    const auto prefix_size = prefix - input;
-    auto it = g_targets.find(std::string(input, prefix_size));
-    if(it == g_targets.end())
-    {
-        // Target mismatch, skip the input
-        return c_skip_input;
-    }
+    // // Include the separator
+    // prefix++;
+    // const auto prefix_size = prefix - input;
+    // auto it = g_targets.find(std::string(input, prefix_size));
+    // if(it == g_targets.end())
+    // {
+    //     // Target mismatch, skip the input
+    //     return c_skip_input;
+    // }
 
-    return it->second(context, prefix, size - prefix_size);
+    // return it->second(context, prefix, size - prefix_size);
 }
