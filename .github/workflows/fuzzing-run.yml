@@ -71,7 +71,7 @@ jobs:
           hostname
           uname -a
           for i in $(seq 1 20); do
-            ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
+            ASAN_OPTIONS=verbosity=1 ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
           done
 
       - name: Print stack trace
