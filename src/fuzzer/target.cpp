@@ -113,160 +113,158 @@ public:
     }
 };
 
-static Context g_context;
-
-static int LoadStringFromFile_target(const char* data, std::size_t size) noexcept
+static int LoadStringFromFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     free(LoadStringFromFile(filename.c_str(), true, nullptr));
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int GetNumberOfLinesInFile_target(const char* data, std::size_t size) noexcept
+static int GetNumberOfLinesInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     GetNumberOfLinesInFile(filename.c_str());
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int SavePayloadToFile_target(const char* data, std::size_t size) noexcept
+static int SavePayloadToFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.nextTempfileName();
+    auto filename = context.nextTempfileName();
     SavePayloadToFile(filename.c_str(), data, size, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int AppendPayloadToFile_target(const char* data, std::size_t size) noexcept
+static int AppendPayloadToFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.makeTempfile(nullptr, 0);
+    auto filename = context.makeTempfile(nullptr, 0);
     AppendPayloadToFile(filename.c_str(), data, size, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int SecureSaveToFile_target(const char* data, std::size_t size) noexcept
+static int SecureSaveToFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.nextTempfileName();
+    auto filename = context.nextTempfileName();
     SecureSaveToFile(filename.c_str(), data, size, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int AppendToFile_target(const char* data, std::size_t size) noexcept
+static int AppendToFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.makeTempfile(nullptr, 0);
+    auto filename = context.makeTempfile(nullptr, 0);
     AppendToFile(filename.c_str(), data, size, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int ReplaceMarkedLinesInFile_target(const char* data, std::size_t size) noexcept
+static int ReplaceMarkedLinesInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto marker = g_context.extractVariant(data, size);
+    auto marker = context.extractVariant(data, size);
     if (marker.empty())
     {
         return c_skip_input;
     }
 
-    auto newline = g_context.extractVariant(data, size);
+    auto newline = context.extractVariant(data, size);
     if (newline.empty())
     {
         return c_skip_input;
     }
 
-    auto comment = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto comment = context.extractVariant(data, size, size_range{ 1, 1 });
     if (comment.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     ReplaceMarkedLinesInFile(filename.c_str(), marker.c_str(), newline.c_str(), comment.at(0), true, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int CheckFileSystemMountingOption_target(const char* data, std::size_t size) noexcept
+static int CheckFileSystemMountingOption_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto mountDirectory = g_context.extractVariant(data, size);
+    auto mountDirectory = context.extractVariant(data, size);
     if (mountDirectory.empty())
     {
         return c_skip_input;
     }
 
-    auto mountType = g_context.extractVariant(data, size);
+    auto mountType = context.extractVariant(data, size);
     if (mountType.empty())
     {
         return c_skip_input;
     }
 
-    auto desiredOption = g_context.extractVariant(data, size);
+    auto desiredOption = context.extractVariant(data, size);
     if (desiredOption.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckFileSystemMountingOption(filename.c_str(), mountDirectory.c_str(), mountType.c_str(), desiredOption.c_str(), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
-static int CharacterFoundInFile_target(const char* data, std::size_t size) noexcept
+static int CharacterFoundInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto what = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto what = context.extractVariant(data, size, size_range{ 1, 1 });
     if (what.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     CharacterFoundInFile(filename.c_str(), what.at(0));
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int CheckNoLegacyPlusEntriesInFile_target(const char* data, std::size_t size) noexcept
+static int CheckNoLegacyPlusEntriesInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckNoLegacyPlusEntriesInFile(filename.c_str(), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
-static int FindTextInFile_target(const char* data, std::size_t size) noexcept
+static int FindTextInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto text = g_context.extractVariant(data, size);
+    auto text = context.extractVariant(data, size);
     if (text.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     FindTextInFile(filename.c_str(), text.c_str(), nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int CheckTextIsFoundInFile_target(const char* data, std::size_t size) noexcept
+static int CheckTextIsFoundInFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto text = g_context.extractVariant(data, size);
+    auto text = context.extractVariant(data, size);
     if (text.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckTextIsFoundInFile(filename.c_str(), text.c_str(), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
@@ -274,50 +272,50 @@ static int CheckTextIsFoundInFile_target(const char* data, std::size_t size) noe
 // Skipping CheckTextIsNotFoundInFile due to similarity
 
 // Skipping CheckMarkedTextNotFoundInFile due to potential of arbitrary command execution
-// static int CheckMarkedTextNotFoundInFile_target(const char* data, std::size_t size) noexcept
+// static int CheckMarkedTextNotFoundInFile_target(Context& context, const char* data, std::size_t size) noexcept
 // {
-//     auto text = g_context.extractVariant(data, size);
+//     auto text = context.extractVariant(data, size);
 //     if (text.empty())
 //     {
 //         return c_skip_input;
 //     }
 
-//     auto marker = g_context.extractVariant(data, size);
+//     auto marker = context.extractVariant(data, size);
 //     if (marker.empty())
 //     {
 //         return c_skip_input;
 //     }
 
-//     auto comment = g_context.extractVariant(data, size, size_range{ 1, 1 });
+//     auto comment = context.extractVariant(data, size, size_range{ 1, 1 });
 //     if (comment.empty())
 //     {
 //         return c_skip_input;
 //     }
 
-//     auto filename = g_context.makeTempfile(data, size);
+//     auto filename = context.makeTempfile(data, size);
 //     char* reason = nullptr;
 //     CheckMarkedTextNotFoundInFile(filename.c_str(), text.c_str(), marker.c_str(), comment.at(0), &reason, nullptr);
-//     g_context.remove(filename);
+//     context.remove(filename);
 //     free(reason);
 //     return 0;
 // }
 
 // Skipping CheckTextNotFoundInEnvironmentVariable due to potential of arbitrary command execution
-// static int CheckTextNotFoundInEnvironmentVariable_target(const char* data, std::size_t size) noexcept
+// static int CheckTextNotFoundInEnvironmentVariable_target(Context& context, const char* data, std::size_t size) noexcept
 // {
-//     auto variable = g_context.extractVariant(data, size);
+//     auto variable = context.extractVariant(data, size);
 //     if (variable.empty())
 //     {
 //         return c_skip_input;
 //     }
 
-//     auto text = g_context.extractVariant(data, size);
+//     auto text = context.extractVariant(data, size);
 //     if (text.empty())
 //     {
 //         return c_skip_input;
 //     }
 
-//     auto strict = g_context.extractVariant(data, size, size_range{ 1, 1 });
+//     auto strict = context.extractVariant(data, size, size_range{ 1, 1 });
 //     if (strict.empty())
 //     {
 //         return c_skip_input;
@@ -329,48 +327,48 @@ static int CheckTextIsFoundInFile_target(const char* data, std::size_t size) noe
 //     return 0;
 // }
 
-static int CheckFileContents_target(const char* data, std::size_t size) noexcept
+static int CheckFileContents_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto text = g_context.extractVariant(data, size);
+    auto text = context.extractVariant(data, size);
     if (text.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckFileContents(filename.c_str(), text.c_str(), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
-static int CheckLineNotFoundOrCommentedOut_target(const char* data, std::size_t size) noexcept
+static int CheckLineNotFoundOrCommentedOut_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto text = g_context.extractVariant(data, size);
+    auto text = context.extractVariant(data, size);
     if (text.empty())
     {
         return c_skip_input;
     }
 
-    auto comment = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto comment = context.extractVariant(data, size, size_range{ 1, 1 });
     if (comment.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckLineNotFoundOrCommentedOut(filename.c_str(), comment.at(0), text.c_str(), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
 // Skipping CheckTextFoundInCommandOutput due to arbitrary command execution
-// static int CheckTextFoundInCommandOutput_target(const char* data, std::size_t size) noexcept
+// static int CheckTextFoundInCommandOutput_target(Context& context, const char* data, std::size_t size) noexcept
 // {
-//     auto command = g_context.extractVariant(data, size);
+//     auto command = context.extractVariant(data, size);
 //     if (command.empty())
 //     {
 //         return c_skip_input;
@@ -385,15 +383,15 @@ static int CheckLineNotFoundOrCommentedOut_target(const char* data, std::size_t 
 
 // Skipping CheckTextNotFoundInCommandOutput due to similarity to CheckTextFoundInCommandOutput
 
-static int GetStringOptionFromBuffer_target(const char* data, std::size_t size) noexcept
+static int GetStringOptionFromBuffer_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
@@ -404,15 +402,15 @@ static int GetStringOptionFromBuffer_target(const char* data, std::size_t size) 
     return 0;
 }
 
-static int GetIntegerOptionFromBuffer_target(const char* data, std::size_t size) noexcept
+static int GetIntegerOptionFromBuffer_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
@@ -423,68 +421,68 @@ static int GetIntegerOptionFromBuffer_target(const char* data, std::size_t size)
     return 0;
 }
 
-static int CheckLockoutForFailedPasswordAttempts_target(const char* data, std::size_t size) noexcept
+static int CheckLockoutForFailedPasswordAttempts_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto pamSo = g_context.extractVariant(data, size);
+    auto pamSo = context.extractVariant(data, size);
     if (pamSo.empty())
     {
         return c_skip_input;
     }
 
-    auto comment = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto comment = context.extractVariant(data, size, size_range{ 1, 1 });
     if (comment.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckLockoutForFailedPasswordAttempts(filename.c_str(), pamSo.c_str(), comment.at(0), &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
-static int CheckPasswordCreationRequirements_target(const char* data, std::size_t size) noexcept
+static int CheckPasswordCreationRequirements_target(Context& context, const char* data, std::size_t size) noexcept
 {
     try
     {
-        auto integer = g_context.extractVariant(data, size);
+        auto integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
         }
         auto retry = std::stoi(integer);
 
-        integer = g_context.extractVariant(data, size);
+        integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
         }
         auto minlen = std::stoi(integer);
 
-        integer = g_context.extractVariant(data, size);
+        integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
         }
         auto minclass = std::stoi(integer);
 
-        integer = g_context.extractVariant(data, size);
+        integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
         }
         auto dcredit = std::stoi(integer);
 
-        integer = g_context.extractVariant(data, size);
+        integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
         }
         auto ucredit = std::stoi(integer);
 
-        integer = g_context.extractVariant(data, size);
+        integer = context.extractVariant(data, size);
         if (integer.empty())
         {
             return c_skip_input;
@@ -503,53 +501,53 @@ static int CheckPasswordCreationRequirements_target(const char* data, std::size_
     }
 }
 
-static int GetStringOptionFromFile_target(const char* data, std::size_t size) noexcept
+static int GetStringOptionFromFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     free(GetStringOptionFromFile(filename.c_str(), option.c_str(), separator.at(0), nullptr));
     return 0;
 }
 
-static int GetIntegerOptionFromFile_target(const char* data, std::size_t size) noexcept
+static int GetIntegerOptionFromFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     GetIntegerOptionFromFile(filename.c_str(), option.c_str(), separator.at(0), nullptr);
     return 0;
 }
 
-static int CheckIntegerOptionFromFileEqualWithAny_target(const char* data, std::size_t size) noexcept
+static int CheckIntegerOptionFromFileEqualWithAny_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
@@ -560,7 +558,7 @@ static int CheckIntegerOptionFromFileEqualWithAny_target(const char* data, std::
     std::size_t count = 0;
     while (count < max_values)
     {
-        auto value = g_context.extractVariant(data, size);
+        auto value = context.extractVariant(data, size);
         if (value.empty())
         {
             break;
@@ -576,30 +574,30 @@ static int CheckIntegerOptionFromFileEqualWithAny_target(const char* data, std::
         }
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckIntegerOptionFromFileEqualWithAny(filename.c_str(), option.c_str(), separator.at(0), values, count, &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     delete[] values;
     return 0;
 }
 
-static int CheckIntegerOptionFromFileLessOrEqualWith_target(const char* data, std::size_t size) noexcept
+static int CheckIntegerOptionFromFileLessOrEqualWith_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto option = g_context.extractVariant(data, size);
+    auto option = context.extractVariant(data, size);
     if (option.empty())
     {
         return c_skip_input;
     }
 
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
     }
 
-    auto integer = g_context.extractVariant(data, size);
+    auto integer = context.extractVariant(data, size);
     if (integer.empty())
     {
         return c_skip_input;
@@ -615,24 +613,24 @@ static int CheckIntegerOptionFromFileLessOrEqualWith_target(const char* data, st
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     char* reason = nullptr;
     CheckIntegerOptionFromFileLessOrEqualWith(filename.c_str(), option.c_str(), separator.at(0), value, &reason, nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     free(reason);
     return 0;
 }
 
-static int DuplicateString_target(const char* data, std::size_t size) noexcept
+static int DuplicateString_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto source = std::string(data, size);
     free(DuplicateString(source.c_str()));
     return 0;
 }
 
-static int ConcatenateStrings_target(const char* data, std::size_t size) noexcept
+static int ConcatenateStrings_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto a = g_context.extractVariant(data, size);
+    auto a = context.extractVariant(data, size);
     if (a.empty())
     {
         return c_skip_input;
@@ -643,16 +641,16 @@ static int ConcatenateStrings_target(const char* data, std::size_t size) noexcep
     return 0;
 }
 
-static int DuplicateStringToLowercase_target(const char* data, std::size_t size) noexcept
+static int DuplicateStringToLowercase_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto source = std::string(data, size);
     free(DuplicateStringToLowercase(source.c_str()));
     return 0;
 }
 
-static int ConvertStringToIntegers_target(const char* data, std::size_t size) noexcept
+static int ConvertStringToIntegers_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto separator = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto separator = context.extractVariant(data, size, size_range{ 1, 1 });
     if (separator.empty())
     {
         return c_skip_input;
@@ -666,9 +664,9 @@ static int ConvertStringToIntegers_target(const char* data, std::size_t size) no
     return 0;
 }
 
-static int RemoveCharacterFromString_target(const char* data, std::size_t size) noexcept
+static int RemoveCharacterFromString_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto what = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto what = context.extractVariant(data, size, size_range{ 1, 1 });
     if (what.empty())
     {
         return c_skip_input;
@@ -679,15 +677,15 @@ static int RemoveCharacterFromString_target(const char* data, std::size_t size) 
     return 0;
 }
 
-static int ReplaceEscapeSequencesInString_target(const char* data, std::size_t size) noexcept
+static int ReplaceEscapeSequencesInString_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto escapes = g_context.extractVariant(data, size);
+    auto escapes = context.extractVariant(data, size);
     if (escapes.empty())
     {
         return c_skip_input;
     }
 
-    auto replacement = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto replacement = context.extractVariant(data, size, size_range{ 1, 1 });
     if (replacement.empty())
     {
         return c_skip_input;
@@ -698,14 +696,14 @@ static int ReplaceEscapeSequencesInString_target(const char* data, std::size_t s
     return 0;
 }
 
-static int HashString_target(const char* data, std::size_t size) noexcept
+static int HashString_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto source = std::string(data, size);
     HashString(source.c_str());
     return 0;
 }
 
-static int ParseHttpProxyData_target(const char* data, std::size_t size) noexcept
+static int ParseHttpProxyData_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto source = std::string(data, size);
     char* hostAddress = nullptr;
@@ -718,7 +716,7 @@ static int ParseHttpProxyData_target(const char* data, std::size_t size) noexcep
     return 0;
 }
 
-static int CheckCpuFlagSupported_target(const char* data, std::size_t size) noexcept
+static int CheckCpuFlagSupported_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto cpuFlag = std::string(data, size);
     char* reason = nullptr;
@@ -727,7 +725,7 @@ static int CheckCpuFlagSupported_target(const char* data, std::size_t size) noex
     return 0;
 }
 
-static int CheckLoginUmask_target(const char* data, std::size_t size) noexcept
+static int CheckLoginUmask_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto desired = std::string(data, size);
     char* reason = nullptr;
@@ -736,23 +734,23 @@ static int CheckLoginUmask_target(const char* data, std::size_t size) noexcept
     return 0;
 }
 
-static int IsCurrentOs_target(const char* data, std::size_t size) noexcept
+static int IsCurrentOs_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     IsCurrentOs(name.c_str(), nullptr);
     return 0;
 }
 
-static int RemovePrefixBlanks_target(const char* data, std::size_t size) noexcept
+static int RemovePrefixBlanks_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     RemovePrefixBlanks(&name[0]);
     return 0;
 }
 
-static int RemovePrefixUpTo_target(const char* data, std::size_t size) noexcept
+static int RemovePrefixUpTo_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto marker = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto marker = context.extractVariant(data, size, size_range{ 1, 1 });
     if (marker.empty())
     {
         return c_skip_input;
@@ -763,9 +761,9 @@ static int RemovePrefixUpTo_target(const char* data, std::size_t size) noexcept
     return 0;
 }
 
-static int RemovePrefixUpToString_target(const char* data, std::size_t size) noexcept
+static int RemovePrefixUpToString_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto marker = g_context.extractVariant(data, size);
+    auto marker = context.extractVariant(data, size);
     if (marker.empty())
     {
         return c_skip_input;
@@ -776,16 +774,16 @@ static int RemovePrefixUpToString_target(const char* data, std::size_t size) noe
     return 0;
 }
 
-static int RemoveTrailingBlanks_target(const char* data, std::size_t size) noexcept
+static int RemoveTrailingBlanks_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     RemoveTrailingBlanks(&name[0]);
     return 0;
 }
 
-static int TruncateAtFirst_target(const char* data, std::size_t size) noexcept
+static int TruncateAtFirst_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto marker = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto marker = context.extractVariant(data, size, size_range{ 1, 1 });
     if (marker.empty())
     {
         return c_skip_input;
@@ -796,14 +794,14 @@ static int TruncateAtFirst_target(const char* data, std::size_t size) noexcept
     return 0;
 }
 
-static int UrlEncode_target(const char* data, std::size_t size) noexcept
+static int UrlEncode_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     free(UrlEncode(&name[0]));
     return 0;
 }
 
-static int UrlDecode_target(const char* data, std::size_t size) noexcept
+static int UrlDecode_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     free(UrlDecode(&name[0]));
@@ -818,83 +816,83 @@ static int UrlDecode_target(const char* data, std::size_t size) noexcept
 //     return 0;
 // }
 
-static int RepairBrokenEolCharactersIfAny_target(const char* data, std::size_t size) noexcept
+static int RepairBrokenEolCharactersIfAny_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto name = std::string(data, size);
     free(RepairBrokenEolCharactersIfAny(name.c_str()));
     return 0;
 }
 
-static int RemoveEscapeSequencesFromFile_target(const char* data, std::size_t size) noexcept
+static int RemoveEscapeSequencesFromFile_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto escapes = g_context.extractVariant(data, size);
+    auto escapes = context.extractVariant(data, size);
     if (escapes.empty())
     {
         return c_skip_input;
     }
 
-    auto replacement = g_context.extractVariant(data, size, size_range{ 1, 1 });
+    auto replacement = context.extractVariant(data, size, size_range{ 1, 1 });
     if (replacement.empty())
     {
         return c_skip_input;
     }
 
-    auto filename = g_context.makeTempfile(data, size);
+    auto filename = context.makeTempfile(data, size);
     RemoveEscapeSequencesFromFile(filename.c_str(), escapes.c_str(), escapes.size(), replacement.at(0), nullptr);
-    g_context.remove(filename);
+    context.remove(filename);
     return 0;
 }
 
-static int IsCommandLoggingEnabledInJsonConfig_target(const char* data, std::size_t size) noexcept
+static int IsCommandLoggingEnabledInJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     IsCommandLoggingEnabledInJsonConfig(json.c_str());
     return 0;
 }
 
-static int IsFullLoggingEnabledInJsonConfig_target(const char* data, std::size_t size) noexcept
+static int IsFullLoggingEnabledInJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     IsFullLoggingEnabledInJsonConfig(json.c_str());
     return 0;
 }
 
-static int IsIotHubManagementEnabledInJsonConfig_target(const char* data, std::size_t size) noexcept
+static int IsIotHubManagementEnabledInJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     IsIotHubManagementEnabledInJsonConfig(json.c_str());
     return 0;
 }
 
-static int GetReportingIntervalFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetReportingIntervalFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetReportingIntervalFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int GetModelVersionFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetModelVersionFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetModelVersionFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int GetLocalManagementFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetLocalManagementFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetLocalManagementFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int GetIotHubProtocolFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetIotHubProtocolFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetIotHubProtocolFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int LoadReportedFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int LoadReportedFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     REPORTED_PROPERTY* reported = nullptr;
@@ -903,28 +901,28 @@ static int LoadReportedFromJsonConfig_target(const char* data, std::size_t size)
     return 0;
 }
 
-static int GetGitManagementFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetGitManagementFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetGitManagementFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int GetGitRepositoryUrlFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetGitRepositoryUrlFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetGitRepositoryUrlFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int GetGitBranchFromJsonConfig_target(const char* data, std::size_t size) noexcept
+static int GetGitBranchFromJsonConfig_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto json = std::string(data, size);
     GetGitBranchFromJsonConfig(json.c_str(), nullptr);
     return 0;
 }
 
-static int CheckOrEnsureUsersDontHaveDotFiles_target(const char* data, std::size_t size) noexcept
+static int CheckOrEnsureUsersDontHaveDotFiles_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto username = std::string(data, size);
     char* reason = nullptr;
@@ -933,7 +931,7 @@ static int CheckOrEnsureUsersDontHaveDotFiles_target(const char* data, std::size
     return 0;
 }
 
-static int CheckUserAccountsNotFound_target(const char* data, std::size_t size) noexcept
+static int CheckUserAccountsNotFound_target(Context& context, const char* data, std::size_t size) noexcept
 {
     auto usernames = std::string(data, size);
     char* reason = nullptr;
@@ -942,18 +940,18 @@ static int CheckUserAccountsNotFound_target(const char* data, std::size_t size) 
     return 0;
 }
 
-static int SecurityBaselineMmiGet_target(const char* data, std::size_t size) noexcept
+static int SecurityBaselineMmiGet_target(Context& context, const char* data, std::size_t size) noexcept
 {
     char* payload = nullptr;
     int payloadSizeBytes = 0;
 
     auto input = std::string(data, size);
-    SecurityBaselineMmiGet(g_context.handle, "SecurityBaseline", input.c_str(), &payload, &payloadSizeBytes);
+    SecurityBaselineMmiGet(context.handle, "SecurityBaseline", input.c_str(), &payload, &payloadSizeBytes);
     SecurityBaselineMmiFree(payload);
     return 0;
 }
 
-// static int SecurityBaselineMmiSet_target(const char* data, std::size_t size) noexcept
+// static int SecurityBaselineMmiSet_target(Context& context, const char* data, std::size_t size) noexcept
 // {
 //     const char* prefix = reinterpret_cast<const char*>(std::memchr(data, '.', size));
 //     if (prefix == nullptr)
@@ -975,14 +973,14 @@ static int SecurityBaselineMmiGet_target(const char* data, std::size_t size) noe
 //     memcpy(payload, prefix, size);
 
 //     auto input = std::string(data, prefix_size-1);
-//     SecurityBaselineMmiSet(g_context.handle, "SecurityBaseline", input.c_str(), payload, size);
+//     SecurityBaselineMmiSet(context.handle, "SecurityBaseline", input.c_str(), payload, size);
 //     SecurityBaselineMmiFree(payload);
 //     return 0;
 // }
 
 // List of supported fuzzing targets.
 // The key is taken from the input data and is used to determine which target to call.
-static const std::map<std::string, int (*)(const char*, std::size_t)> g_targets = {
+static const std::map<std::string, int (*)(Context&, const char*, std::size_t)> g_targets = {
     // { "SecurityBaselineMmiGet.", SecurityBaselineMmiGet_target },
     // { "SecurityBaselineMmiSet.", SecurityBaselineMmiSet_target },
     { "GetNumberOfLinesInFile.", GetNumberOfLinesInFile_target },
@@ -1048,6 +1046,8 @@ static const std::map<std::string, int (*)(const char*, std::size_t)> g_targets 
 
 // libfuzzer entry point
 extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size) {
+    static Context context;
+
     const auto* input = reinterpret_cast<const char*>(data);
     const auto* prefix = reinterpret_cast<const char*>(std::memchr(input, '.', size));
     if (prefix == nullptr)
@@ -1066,5 +1066,5 @@ extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size
         return c_skip_input;
     }
 
-    return it->second(prefix, size - prefix_size);
+    return it->second(context, prefix, size - prefix_size);
 }
