@@ -116,7 +116,7 @@ jobs:
           container: ${{ steps.container.outputs.id }}
           working-directory: ${{ env.MOUNT }}/build
           cmd: |
-            cmake --build . --config ${{ env.BUILD_TYPE }} --parallel
+            cmake --build . --config Debug --parallel
             ldd ${{ env.MOUNT }}/build/fuzzer/osconfig-fuzzer
             clang --version
 
