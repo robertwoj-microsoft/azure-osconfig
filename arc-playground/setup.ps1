@@ -34,13 +34,16 @@ try {
     $policy_assignment = Get-AzPolicyAssignment -Scope $resource_group_id -Name "arc-playground-ssh-policy-assignment"
 }
 
+# API version change legacy has Identity.PrincipalId, new one IdentityPrincipalId, handle both
+$policy_assignment_principal_id=$policy_assignment.IdentityPrincipalId ?? $policy_assignment.Identity.PrincipalId
+
 # Guest configuration role must be assigned
 $role_definition = Get-AzRoleDefinition -Name "Guest Configuration Resource Contributor"
 try {
-    New-AzRoleAssignment -Scope $resource_group_id -ObjectId $policy_assignment.IdentityPrincipalId -RoleDefinitionId $role_definition.Id > $null
+    New-AzRoleAssignment -Scope $resource_group_id -ObjectId $policy_assignment_principal_id -RoleDefinitionId $role_definition.Id > $null
 } catch {
     # Check if the role assignment already exists, if not, the script fails
-    Get-AzRoleAssignment -Scope $resource_group_id -ObjectId $policy_assignment.IdentityPrincipalId -RoleDefinitionId $role_definition.Id > $null
+    Get-AzRoleAssignment -Scope $resource_group_id -ObjectId $policy_assignment_principal_id -RoleDefinitionId $role_definition.Id > $null
 }
 
 $access_token = Get-AzAccessToken -WarningAction Ignore
