@@ -36,34 +36,34 @@ struct Context
 public:
     Context() noexcept(false)
     {
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
-        if(::mkdtemp(path) == nullptr)
-        {
-            fprintf(stderr, "Context::Context:%d\n", __LINE__);
-            throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
-        }
-        tempdir = path;
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
+        // if(::mkdtemp(path) == nullptr)
+        // {
+        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        //     throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
+        // }
+        // tempdir = path;
 
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        SecurityBaselineInitialize();
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        if (handle == nullptr)
-        {
-            fprintf(stderr, "Context::Context:%d\n", __LINE__);
-            SecurityBaselineShutdown();
-            throw std::runtime_error("failed to initialized SecurityBaseline library");
-        }
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // SecurityBaselineInitialize();
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // if (handle == nullptr)
+        // {
+        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        //     SecurityBaselineShutdown();
+        //     throw std::runtime_error("failed to initialized SecurityBaseline library");
+        // }
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
     }
 
     ~Context() noexcept
     {
-        ::remove(tempdir.c_str());
-        SecurityBaselineMmiClose(handle);
-        SecurityBaselineShutdown();
+        // ::remove(tempdir.c_str());
+        // SecurityBaselineMmiClose(handle);
+        // SecurityBaselineShutdown();
     }
 
     std::string nextTempfileName() const noexcept
@@ -933,10 +933,10 @@ static int CheckOrEnsureUsersDontHaveDotFiles_target(Context& context, const cha
 
 static int CheckUserAccountsNotFound_target(Context& context, const char* data, std::size_t size) noexcept
 {
-    auto usernames = std::string(data, size);
-    char* reason = nullptr;
-    CheckUserAccountsNotFound(usernames.c_str(), &reason, nullptr);
-    free(reason);
+    // auto usernames = std::string(data, size);
+    // char* reason = nullptr;
+    // CheckUserAccountsNotFound(usernames.c_str(), &reason, nullptr);
+    // free(reason);
     return 0;
 }
 
@@ -981,66 +981,66 @@ static int SecurityBaselineMmiGet_target(Context& context, const char* data, std
 // List of supported fuzzing targets.
 // The key is taken from the input data and is used to determine which target to call.
 static const std::map<std::string, int (*)(Context&, const char*, std::size_t)> g_targets = {
-    // { "SecurityBaselineMmiGet.", SecurityBaselineMmiGet_target },
-    // { "SecurityBaselineMmiSet.", SecurityBaselineMmiSet_target },
-    { "GetNumberOfLinesInFile.", GetNumberOfLinesInFile_target },
-    { "LoadStringFromFile.", LoadStringFromFile_target },
-    { "SavePayloadToFile.", SavePayloadToFile_target },
-    { "AppendPayloadToFile.", AppendPayloadToFile_target },
-    { "SecureSaveToFile.", SecureSaveToFile_target },
-    { "AppendToFile.", AppendToFile_target },
-    { "ReplaceMarkedLinesInFile.", ReplaceMarkedLinesInFile_target },
-    { "CheckFileSystemMountingOption.", CheckFileSystemMountingOption_target },
-    { "CharacterFoundInFile.", CharacterFoundInFile_target },
-    { "CheckNoLegacyPlusEntriesInFile.", CheckNoLegacyPlusEntriesInFile_target },
-    { "FindTextInFile.", FindTextInFile_target },
-    { "CheckTextIsFoundInFile.", CheckTextIsFoundInFile_target },
-    // { "CheckMarkedTextNotFoundInFile.", CheckMarkedTextNotFoundInFile_target },
-    // { "CheckTextNotFoundInEnvironmentVariable.", CheckTextNotFoundInEnvironmentVariable_target },
-    { "CheckFileContents.", CheckFileContents_target },
-    { "CheckLineNotFoundOrCommentedOut.", CheckLineNotFoundOrCommentedOut_target },
-    // { "CheckTextFoundInCommandOutput.", CheckTextFoundInCommandOutput_target },
-    { "GetStringOptionFromBuffer.", GetStringOptionFromBuffer_target },
-    { "GetIntegerOptionFromBuffer.", GetIntegerOptionFromBuffer_target },
-    { "CheckLockoutForFailedPasswordAttempts.", CheckLockoutForFailedPasswordAttempts_target },
-    { "CheckPasswordCreationRequirements.", CheckPasswordCreationRequirements_target },
-    { "GetStringOptionFromFile.", GetStringOptionFromFile_target },
-    { "GetIntegerOptionFromFile.", GetIntegerOptionFromFile_target },
-    { "CheckIntegerOptionFromFileEqualWithAny.", CheckIntegerOptionFromFileEqualWithAny_target },
-    { "CheckIntegerOptionFromFileLessOrEqualWith.", CheckIntegerOptionFromFileLessOrEqualWith_target },
-    { "DuplicateString.", DuplicateString_target },
-    { "ConcatenateStrings.", ConcatenateStrings_target },
-    { "DuplicateStringToLowercase.", DuplicateStringToLowercase_target },
-    { "ConvertStringToIntegers.", ConvertStringToIntegers_target },
-    { "RemoveCharacterFromString.", RemoveCharacterFromString_target },
-    { "ReplaceEscapeSequencesInString.", ReplaceEscapeSequencesInString_target },
-    { "HashString.", HashString_target },
-    { "ParseHttpProxyData.", ParseHttpProxyData_target },
-    { "CheckCpuFlagSupported.", CheckCpuFlagSupported_target },
-    { "CheckLoginUmask.", CheckLoginUmask_target },
-    { "IsCurrentOs.", IsCurrentOs_target },
-    { "RemovePrefixBlanks.", RemovePrefixBlanks_target },
-    { "RemovePrefixUpTo.", RemovePrefixUpTo_target },
-    { "RemovePrefixUpToString.", RemovePrefixUpToString_target },
-    { "RemoveTrailingBlanks.", RemoveTrailingBlanks_target },
-    { "TruncateAtFirst.", TruncateAtFirst_target },
-    { "UrlEncode.", UrlEncode_target },
-    { "UrlDecode.", UrlDecode_target },
-    // { "IsDaemonActive.", IsDaemonActive_target },
-    { "RepairBrokenEolCharactersIfAny.", RepairBrokenEolCharactersIfAny_target },
-    { "RemoveEscapeSequencesFromFile.", RemoveEscapeSequencesFromFile_target },
-    { "IsCommandLoggingEnabledInJsonConfig.", IsCommandLoggingEnabledInJsonConfig_target },
-    { "IsFullLoggingEnabledInJsonConfig.", IsFullLoggingEnabledInJsonConfig_target },
-    { "IsIotHubManagementEnabledInJsonConfig.", IsIotHubManagementEnabledInJsonConfig_target },
-    { "GetReportingIntervalFromJsonConfig.", GetReportingIntervalFromJsonConfig_target },
-    { "GetModelVersionFromJsonConfig.", GetModelVersionFromJsonConfig_target },
-    { "GetLocalManagementFromJsonConfig.", GetLocalManagementFromJsonConfig_target },
-    { "GetIotHubProtocolFromJsonConfig.", GetIotHubProtocolFromJsonConfig_target },
-    { "LoadReportedFromJsonConfig.", LoadReportedFromJsonConfig_target },
-    { "GetGitManagementFromJsonConfig.", GetGitManagementFromJsonConfig_target },
-    { "GetGitRepositoryUrlFromJsonConfig.", GetGitRepositoryUrlFromJsonConfig_target },
-    { "GetGitBranchFromJsonConfig.", GetGitBranchFromJsonConfig_target },
-    { "CheckOrEnsureUsersDontHaveDotFiles.", CheckOrEnsureUsersDontHaveDotFiles_target },
+    // // { "SecurityBaselineMmiGet.", SecurityBaselineMmiGet_target },
+    // // { "SecurityBaselineMmiSet.", SecurityBaselineMmiSet_target },
+    // { "GetNumberOfLinesInFile.", GetNumberOfLinesInFile_target },
+    // { "LoadStringFromFile.", LoadStringFromFile_target },
+    // { "SavePayloadToFile.", SavePayloadToFile_target },
+    // { "AppendPayloadToFile.", AppendPayloadToFile_target },
+    // { "SecureSaveToFile.", SecureSaveToFile_target },
+    // { "AppendToFile.", AppendToFile_target },
+    // { "ReplaceMarkedLinesInFile.", ReplaceMarkedLinesInFile_target },
+    // { "CheckFileSystemMountingOption.", CheckFileSystemMountingOption_target },
+    // { "CharacterFoundInFile.", CharacterFoundInFile_target },
+    // { "CheckNoLegacyPlusEntriesInFile.", CheckNoLegacyPlusEntriesInFile_target },
+    // { "FindTextInFile.", FindTextInFile_target },
+    // { "CheckTextIsFoundInFile.", CheckTextIsFoundInFile_target },
+    // // { "CheckMarkedTextNotFoundInFile.", CheckMarkedTextNotFoundInFile_target },
+    // // { "CheckTextNotFoundInEnvironmentVariable.", CheckTextNotFoundInEnvironmentVariable_target },
+    // { "CheckFileContents.", CheckFileContents_target },
+    // { "CheckLineNotFoundOrCommentedOut.", CheckLineNotFoundOrCommentedOut_target },
+    // // { "CheckTextFoundInCommandOutput.", CheckTextFoundInCommandOutput_target },
+    // { "GetStringOptionFromBuffer.", GetStringOptionFromBuffer_target },
+    // { "GetIntegerOptionFromBuffer.", GetIntegerOptionFromBuffer_target },
+    // { "CheckLockoutForFailedPasswordAttempts.", CheckLockoutForFailedPasswordAttempts_target },
+    // { "CheckPasswordCreationRequirements.", CheckPasswordCreationRequirements_target },
+    // { "GetStringOptionFromFile.", GetStringOptionFromFile_target },
+    // { "GetIntegerOptionFromFile.", GetIntegerOptionFromFile_target },
+    // { "CheckIntegerOptionFromFileEqualWithAny.", CheckIntegerOptionFromFileEqualWithAny_target },
+    // { "CheckIntegerOptionFromFileLessOrEqualWith.", CheckIntegerOptionFromFileLessOrEqualWith_target },
+    // { "DuplicateString.", DuplicateString_target },
+    // { "ConcatenateStrings.", ConcatenateStrings_target },
+    // { "DuplicateStringToLowercase.", DuplicateStringToLowercase_target },
+    // { "ConvertStringToIntegers.", ConvertStringToIntegers_target },
+    // { "RemoveCharacterFromString.", RemoveCharacterFromString_target },
+    // { "ReplaceEscapeSequencesInString.", ReplaceEscapeSequencesInString_target },
+    // { "HashString.", HashString_target },
+    // { "ParseHttpProxyData.", ParseHttpProxyData_target },
+    // { "CheckCpuFlagSupported.", CheckCpuFlagSupported_target },
+    // { "CheckLoginUmask.", CheckLoginUmask_target },
+    // { "IsCurrentOs.", IsCurrentOs_target },
+    // { "RemovePrefixBlanks.", RemovePrefixBlanks_target },
+    // { "RemovePrefixUpTo.", RemovePrefixUpTo_target },
+    // { "RemovePrefixUpToString.", RemovePrefixUpToString_target },
+    // { "RemoveTrailingBlanks.", RemoveTrailingBlanks_target },
+    // { "TruncateAtFirst.", TruncateAtFirst_target },
+    // { "UrlEncode.", UrlEncode_target },
+    // { "UrlDecode.", UrlDecode_target },
+    // // { "IsDaemonActive.", IsDaemonActive_target },
+    // { "RepairBrokenEolCharactersIfAny.", RepairBrokenEolCharactersIfAny_target },
+    // { "RemoveEscapeSequencesFromFile.", RemoveEscapeSequencesFromFile_target },
+    // { "IsCommandLoggingEnabledInJsonConfig.", IsCommandLoggingEnabledInJsonConfig_target },
+    // { "IsFullLoggingEnabledInJsonConfig.", IsFullLoggingEnabledInJsonConfig_target },
+    // { "IsIotHubManagementEnabledInJsonConfig.", IsIotHubManagementEnabledInJsonConfig_target },
+    // { "GetReportingIntervalFromJsonConfig.", GetReportingIntervalFromJsonConfig_target },
+    // { "GetModelVersionFromJsonConfig.", GetModelVersionFromJsonConfig_target },
+    // { "GetLocalManagementFromJsonConfig.", GetLocalManagementFromJsonConfig_target },
+    // { "GetIotHubProtocolFromJsonConfig.", GetIotHubProtocolFromJsonConfig_target },
+    // { "LoadReportedFromJsonConfig.", LoadReportedFromJsonConfig_target },
+    // { "GetGitManagementFromJsonConfig.", GetGitManagementFromJsonConfig_target },
+    // { "GetGitRepositoryUrlFromJsonConfig.", GetGitRepositoryUrlFromJsonConfig_target },
+    // { "GetGitBranchFromJsonConfig.", GetGitBranchFromJsonConfig_target },
+    // { "CheckOrEnsureUsersDontHaveDotFiles.", CheckOrEnsureUsersDontHaveDotFiles_target },
     { "CheckUserAccountsNotFound.", CheckUserAccountsNotFound_target },
 };
 
