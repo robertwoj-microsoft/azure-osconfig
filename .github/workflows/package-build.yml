@@ -114,7 +114,10 @@ jobs:
         with:
           container: ${{ steps.container.outputs.id }}
           working-directory: ${{ env.MOUNT }}/build
-          cmd: cmake --build . --config ${{ env.BUILD_TYPE }} --parallel
+          cmd: |
+            cmake --build . --config ${{ env.BUILD_TYPE }} --parallel
+            ldd ${{ env.MOUNT }}/build/fuzzer/osconfig-fuzzer
+            clang --version
 
       - name: Run cpack
         if: ${{ inputs.package-type }}

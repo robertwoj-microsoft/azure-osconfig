@@ -58,14 +58,13 @@ jobs:
           ulimit -c unlimited
           ulimit -c
           sudo bash -c 'echo /tmp/cores/osconfig-fuzzer.%e.%p > /proc/sys/kernel/core_pattern'
-          sudo apt install -y gdb
           core_location="/tmp/cores/"
           mkdir -p ${core_location}
           echo "Core location: ${core_location}"
           ldd ./osconfig-fuzzer
+          clang --version
           set -o pipefail
-          echo "core /tmp/cores" >> commands.txt
-          echo "run -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus" >> commands.txt
+          echo "run /tmp/corpus" >> commands.txt
           echo "quit" >> commands.txt
           gdb -batch -x commands.txt ./osconfig-fuzzer
           ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus 2>&1 >/tmp/osconfig-stdout.log | tee /tmp/osconfig-fuzzer.log
@@ -74,7 +73,6 @@ jobs:
         working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
         if: failure()
         run: |
-          sudo dmesg
           core_location="/tmp/cores/"
           ls -l ${core_location}
           echo "bt" > commands.txt
