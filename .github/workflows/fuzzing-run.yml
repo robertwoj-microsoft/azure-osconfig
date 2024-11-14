@@ -62,7 +62,6 @@ jobs:
           mkdir -p ${core_location}
           echo "Core location: ${core_location}"
           ldd ./osconfig-fuzzer
-          clang --version
           set -o pipefail
           set +e
           # echo "run /tmp/corpus" >> commands.txt
