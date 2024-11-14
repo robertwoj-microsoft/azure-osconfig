@@ -64,6 +64,7 @@ jobs:
           ldd ./osconfig-fuzzer
           clang --version
           set -o pipefail
+          set +e
           # echo "run /tmp/corpus" >> commands.txt
           # echo "quit" >> commands.txt
           # gdb -batch -x commands.txt ./osconfig-fuzzer
