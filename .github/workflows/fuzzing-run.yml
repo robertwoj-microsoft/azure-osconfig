@@ -55,8 +55,8 @@ jobs:
         run: |
           cat "${BASH_SOURCE[0]}"
           echo "========================================"
-          ulimit -c unlimited
-          ulimit -c
+          ulimit -a
+          ulimit -s 16384
           sudo bash -c 'echo /tmp/cores/osconfig-fuzzer.%e.%p > /proc/sys/kernel/core_pattern'
           core_location="/tmp/cores/"
           mkdir -p ${core_location}
@@ -71,7 +71,7 @@ jobs:
           hostname
           uname -a
           for i in $(seq 1 20); do
-            ASAN_OPTIONS=verbosity=1 ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
+            ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
           done
 
       - name: Print stack trace
