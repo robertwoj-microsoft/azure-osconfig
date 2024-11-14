@@ -1069,3 +1069,15 @@ extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size
 
     // return it->second(context, prefix, size - prefix_size);
 }
+
+extern "C" int LLVMFuzzerRunDriver(int*, char***, int (*)(const uint8_t*, size_t));
+
+static int target(const std::uint8_t* data, std::size_t size) noexcept(false)
+{
+    return 0;
+}
+
+int main(int argc, char** argv)
+{
+    return LLVMFuzzerRunDriver(&argc, &argv, target);
+}
