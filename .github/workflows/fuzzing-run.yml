@@ -67,6 +67,9 @@ jobs:
           # echo "run /tmp/corpus" >> commands.txt
           # echo "quit" >> commands.txt
           # gdb -batch -x commands.txt ./osconfig-fuzzer
+          systemctl status
+          hostname
+          uname -a
           for i in $(seq 1 20); do
             ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
           done
