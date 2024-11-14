@@ -11,6 +11,8 @@
     "editor.formatOnType": true,
     // Use JSON with comments
     "files.associations": {
-        "*.json": "jsonc"
+        "*.json": "jsonc",
+        "cstdint": "cpp",
+        "cstring": "cpp"
     }
 }

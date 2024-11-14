@@ -1,5 +1,5 @@
-#include "Mmi.h"
-#include "SecurityBaseline.h"
+// #include "Mmi.h"
+// #include "SecurityBaseline.h"
 #include "CommonUtils.h"
 #include "UserUtils.h"
 #include <unistd.h>
@@ -31,39 +31,39 @@ struct size_range
 // A class to keep a single static initialization of the SecurityBaseline library
 struct Context
 {
-    MMI_HANDLE handle;
+    // MMI_HANDLE handle;
     std::string tempdir;
 public:
     Context() noexcept(false)
     {
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
-        if(::mkdtemp(path) == nullptr)
-        {
-            fprintf(stderr, "Context::Context:%d\n", __LINE__);
-            throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
-        }
-        tempdir = path;
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // char path[] = "/tmp/osconfig-fuzzer-XXXXXX";
+        // if(::mkdtemp(path) == nullptr)
+        // {
+        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        //     throw std::runtime_error(std::string{ "failed to create temporary directory: " } + std::strerror(errno));
+        // }
+        // tempdir = path;
 
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        SecurityBaselineInitialize();
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
-        if (handle == nullptr)
-        {
-            fprintf(stderr, "Context::Context:%d\n", __LINE__);
-            SecurityBaselineShutdown();
-            throw std::runtime_error("failed to initialized SecurityBaseline library");
-        }
-        fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // SecurityBaselineInitialize();
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // handle = SecurityBaselineMmiOpen("SecurityBaselineTest", 4096);
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        // if (handle == nullptr)
+        // {
+        //     fprintf(stderr, "Context::Context:%d\n", __LINE__);
+        //     SecurityBaselineShutdown();
+        //     throw std::runtime_error("failed to initialized SecurityBaseline library");
+        // }
+        // fprintf(stderr, "Context::Context:%d\n", __LINE__);
     }
 
     ~Context() noexcept
     {
-        ::remove(tempdir.c_str());
-        SecurityBaselineMmiClose(handle);
-        SecurityBaselineShutdown();
+        // ::remove(tempdir.c_str());
+        // SecurityBaselineMmiClose(handle);
+        // SecurityBaselineShutdown();
     }
 
     std::string nextTempfileName() const noexcept
@@ -940,16 +940,16 @@ static int CheckUserAccountsNotFound_target(Context& context, const char* data, 
     return 0;
 }
 
-static int SecurityBaselineMmiGet_target(Context& context, const char* data, std::size_t size) noexcept
-{
-    char* payload = nullptr;
-    int payloadSizeBytes = 0;
+// static int SecurityBaselineMmiGet_target(Context& context, const char* data, std::size_t size) noexcept
+// {
+//     char* payload = nullptr;
+//     int payloadSizeBytes = 0;
 
-    auto input = std::string(data, size);
-    SecurityBaselineMmiGet(context.handle, "SecurityBaseline", input.c_str(), &payload, &payloadSizeBytes);
-    SecurityBaselineMmiFree(payload);
-    return 0;
-}
+//     auto input = std::string(data, size);
+//     SecurityBaselineMmiGet(context.handle, "SecurityBaseline", input.c_str(), &payload, &payloadSizeBytes);
+//     SecurityBaselineMmiFree(payload);
+//     return 0;
+// }
 
 // static int SecurityBaselineMmiSet_target(Context& context, const char* data, std::size_t size) noexcept
 // {

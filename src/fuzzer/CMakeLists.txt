@@ -10,9 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 find_package(LLVM REQUIRED)
 
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=fuzzer")
-add_library(libfuzzer STATIC IMPORTED)
-set_property(TARGET libfuzzer PROPERTY IMPORTED_LOCATION "${LLVM_LIBRARY_DIR}/clang/${LLVM_VERSION}/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a")
+# add_library(libfuzzer STATIC IMPORTED)
+# set_property(TARGET libfuzzer PROPERTY IMPORTED_LOCATION "${LLVM_LIBRARY_DIR}/clang/${LLVM_VERSION}/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a")
 
 include_directories(${CMAKE_SOURCE_DIR}/common/commonutils)
 add_executable(osconfig-fuzzer target.cpp)
-target_link_libraries(osconfig-fuzzer PRIVATE asb securitybaselinelib libfuzzer)
+target_link_libraries(osconfig-fuzzer PRIVATE asb)
