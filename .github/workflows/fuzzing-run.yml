@@ -17,6 +17,14 @@ on:
         required: false
         type: number
         default: 600
+      container-tag:
+        type: string
+        required: false
+        default: latest
+
+env:
+  MOUNT: /azure-osconfig
+  REGISTRY: ghcr.io
 
 jobs:
   package:
@@ -32,8 +40,6 @@ jobs:
     needs: package
     runs-on: [self-hosted, 1ES.Pool=robertwoj-e2e-pool, '1ES.ImageOverride=${{ inputs.target }}']
     steps:
-      - uses: actions/checkout@v4
-
       - uses: actions/download-artifact@v4
         id: download
         with:
@@ -41,8 +47,20 @@ jobs:
 
       - name: Install prerequisites
         run: |
-          sudo apt update
-          sudo apt install -y clang-15
+          # Add Docker's official GPG key:
+          sudo apt-get update
+          sudo apt-get install -y ca-certificates curl
+          sudo install -m 0755 -d /etc/apt/keyrings
+          sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+          sudo chmod a+r /etc/apt/keyrings/docker.asc
+          # Add the repository to Apt sources:
+          echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          sudo apt-get install -y clang
           sudo chmod +x ${{ steps.download.outputs.download-path }}/fuzzer/osconfig-fuzzer
           mkdir /tmp/corpus
           mkdir /tmp/artifacts
@@ -50,41 +68,57 @@ jobs:
           sudo apt install -y gdb
           sudo apt install -y strace
 
-      - name: Run osconfig-fuzzer
-        working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
-        run: |
-          cat "${BASH_SOURCE[0]}"
-          echo "========================================"
-          set +e
-          ulimit -a
-          ulimit -l 8216248
-          ulimit -s 16384
-          sudo bash -c 'echo /tmp/cores/osconfig-fuzzer.%e.%p > /proc/sys/kernel/core_pattern'
-          core_location="/tmp/cores/"
-          mkdir -p ${core_location}
-          echo "Core location: ${core_location}"
-          ldd ./osconfig-fuzzer
-          set -o pipefail
-          set +e
-          # echo "run /tmp/corpus" >> commands.txt
-          # echo "quit" >> commands.txt
-          # gdb -batch -x commands.txt ./osconfig-fuzzer
-          # systemctl status
-          hostname
-          uname -a
-          for i in $(seq 1 20); do
-            ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
-          done
+      - name: Run container
+        id: container
+        uses: ./.github/actions/container-run
+        with:
+          registry: ${{ env.REGISTRY }}
+          container: azure/azure-osconfig/${{ inputs.target }}-${{ inputs.arch }}
+          mount: ${{ github.workspace }}:${{ env.MOUNT }}
+          tag: ${{ inputs.container-tag }}
 
-      - name: Print stack trace
-        working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
-        if: failure()
-        run: |
-          core_location="/tmp/cores/"
-          ls -l ${core_location}
-          echo "bt" > commands.txt
-          echo "quit" >> commands.txt
-          gdb -batch -x commands.txt ./osconfig-fuzzer $(ls -t ${core_location} | head -n 1)
+      - name: Run osconfig-fuzzer
+        uses: ./.github/actions/container-exec
+        with:
+          container: ${{ steps.container.outputs.id }}
+          working-directory: ${{ env.MOUNT }}/build/fuzzer
+          cmd: set +e && for i in $(seq 1 20); do ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*; done
+
+      # - name: Run osconfig-fuzzer
+      #   working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
+      #   run: |
+      #     cat "${BASH_SOURCE[0]}"
+      #     echo "========================================"
+      #     set +e
+      #     ulimit -a
+      #     ulimit -l 8216248
+      #     ulimit -s 16384
+      #     sudo bash -c 'echo /tmp/cores/osconfig-fuzzer.%e.%p > /proc/sys/kernel/core_pattern'
+      #     core_location="/tmp/cores/"
+      #     mkdir -p ${core_location}
+      #     echo "Core location: ${core_location}"
+      #     ldd ./osconfig-fuzzer
+      #     set -o pipefail
+      #     set +e
+      #     # echo "run /tmp/corpus" >> commands.txt
+      #     # echo "quit" >> commands.txt
+      #     # gdb -batch -x commands.txt ./osconfig-fuzzer
+      #     # systemctl status
+      #     hostname
+      #     uname -a
+      #     for i in $(seq 1 20); do
+      #       ./osconfig-fuzzer -artifact_prefix=/tmp/artifacts/ -max_total_time=${{ inputs.timeout-seconds }} /tmp/corpus/*
+      #     done
+
+      # - name: Print stack trace
+      #   working-directory: ${{ steps.download.outputs.download-path }}/fuzzer
+      #   if: failure()
+      #   run: |
+      #     core_location="/tmp/cores/"
+      #     ls -l ${core_location}
+      #     echo "bt" > commands.txt
+      #     echo "quit" >> commands.txt
+      #     gdb -batch -x commands.txt ./osconfig-fuzzer $(ls -t ${core_location} | head -n 1)
 
       - uses: actions/upload-artifact@v4
         if: success() || failure()
