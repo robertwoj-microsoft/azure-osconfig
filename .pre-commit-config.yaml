@@ -9,7 +9,11 @@ repos:
     - id: check-added-large-files
     - id: mixed-line-ending
       args: ['--fix', 'lf']
-      exclude: '\.bat$'
+      exclude: |
+         (?x)(
+                \.cmd|
+                \.vcproj|
+            )$
     - id: mixed-line-ending
       args: ['--fix', 'crlf']
       files: '\.cmd$'
