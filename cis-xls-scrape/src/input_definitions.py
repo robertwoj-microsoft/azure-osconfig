@@ -16,5 +16,6 @@ class InputDefinition:
     audit_procedure_idx: int
 
 input_definitions = [
-    InputDefinition('CIS_Ubuntu_Linux_22.04_LTS_Benchmark_v2.0.0-Certification.xlsx', 'cis', '2.0.0', 'Ubuntu', '22.04', 1, 2, 3, 12, 13),
+    InputDefinition('Ubuntu/CIS_Ubuntu_Linux_22.04_LTS_Benchmark_v2.0.0-Certification.xlsx', 'cis', 'v2.0.0', 'Ubuntu', '22.04', 1, 2, 3, 12, 13),
+    InputDefinition('RHEL/CIS_Red_Hat_Enterprise_Linux_9_Benchmark_v2.0.0-Certification.xlsx', 'cis', 'v2.0.0', 'RHEL', '9', 1, 2, 3, 12, 13),
 ]
