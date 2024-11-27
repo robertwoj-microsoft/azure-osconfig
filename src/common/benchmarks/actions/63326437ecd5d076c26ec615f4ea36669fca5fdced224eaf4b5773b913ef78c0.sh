@@ -1,0 +1,1 @@
+# grep -Psi -- '^\h*etm\b' /etc/crypto-policies/state/CURRENT.pol

@@ -1,0 +1,1 @@
+# sshd -T -C user=root -C host="$(hostname)" -C addr="$(hostname -I | cut -d ' ' -f1)" | grep -Pi '^\h*(allow|deny)(users|groups)\h+\H+'

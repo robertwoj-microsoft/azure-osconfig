@@ -1,0 +1,1 @@
+<device> /home <fstype> rw,nosuid,noexec 0 0

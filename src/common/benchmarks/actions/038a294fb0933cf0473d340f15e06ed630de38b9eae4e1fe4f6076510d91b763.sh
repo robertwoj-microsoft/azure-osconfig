@@ -1,0 +1,1 @@
+# grep pam_pwquality.so /etc/pam.d/system-auth /etc/pam.d/password-auth

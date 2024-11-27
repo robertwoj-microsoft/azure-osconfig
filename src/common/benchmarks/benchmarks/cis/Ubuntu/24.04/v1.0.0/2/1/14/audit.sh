@@ -1,0 +1,1 @@
+# dpkg-query -s samba &>/dev/null && echo "samba is installed"

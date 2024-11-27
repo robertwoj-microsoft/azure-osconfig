@@ -1,0 +1,1 @@
+# kldstat -q -m msdosfs && printf "msdosfs kernel module is loaded\n" || printf "msdosfs kernel module is NOT loaded\n"

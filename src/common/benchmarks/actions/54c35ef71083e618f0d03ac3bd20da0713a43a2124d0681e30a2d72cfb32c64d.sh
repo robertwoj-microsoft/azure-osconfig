@@ -1,0 +1,1 @@
+# sysrc savecore_enable=NO

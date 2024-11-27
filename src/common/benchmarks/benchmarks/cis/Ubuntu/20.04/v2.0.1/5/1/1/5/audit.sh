@@ -1,0 +1,1 @@
+# grep -Psi '^\h*ForwardToSyslog\h*=\h*yes\b` /etc/systemd/journald.conf /etc/systemd/journald.conf.d/*

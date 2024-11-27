@@ -1,0 +1,1 @@
+# grep -PH -- '\bpam_unix\.so\b' /etc/pam.d/common-{account,auth,password,session,session-noninteractive}

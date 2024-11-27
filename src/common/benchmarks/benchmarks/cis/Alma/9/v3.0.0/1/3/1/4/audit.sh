@@ -1,0 +1,5 @@
+# getenforce
+
+Enforcing
+-OR-
+Permissive

@@ -1,0 +1,2 @@
+# [ $(sysctl -nq net.inet.icmp.drop_redirect) -eq 1 ] && printf "IPv4 ICMP Redirects are dropped\n" || printf "IPv4 ICMP Redirects are NOT dropped\n"
+# [ $(sysctl -nq net.inet6.icmp6.rediraccept) -eq 0 ] && printf "IPv6 ICMP Redirects are dropped\n" || printf "IPv6 ICMP Redirects are NOT dropped\n"

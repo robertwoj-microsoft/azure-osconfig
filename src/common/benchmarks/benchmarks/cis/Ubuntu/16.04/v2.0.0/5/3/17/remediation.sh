@@ -1,0 +1,3 @@
+ClientAliveInterval 900
+
+ClientAliveCountMax 0

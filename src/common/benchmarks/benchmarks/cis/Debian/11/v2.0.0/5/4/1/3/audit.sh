@@ -1,0 +1,1 @@
+# grep -Pi -- '^\h*PASS_WARN_AGE\h+\d+\b' /etc/login.defs

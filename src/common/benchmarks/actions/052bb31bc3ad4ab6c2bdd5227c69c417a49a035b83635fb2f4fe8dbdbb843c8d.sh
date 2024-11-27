@@ -1,0 +1,1 @@
+# grep -PHs -- '^\h*[^#\n\r]+\h+pam_unix\.so\h+([^#\n\r]+\h+)?nullok\b' /etc/pam.d/common-{password,auth,account,session,session-noninteractive}

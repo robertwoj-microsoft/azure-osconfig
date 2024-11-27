@@ -1,0 +1,1 @@
+# pam-config -a --pwhistory --pwhistory-remember=5

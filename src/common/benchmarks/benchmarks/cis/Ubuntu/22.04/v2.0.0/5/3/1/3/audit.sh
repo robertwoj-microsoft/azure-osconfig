@@ -1,0 +1,1 @@
+# dpkg-query -s libpam-pwquality | grep -P -- '^(Status|Version)\b'

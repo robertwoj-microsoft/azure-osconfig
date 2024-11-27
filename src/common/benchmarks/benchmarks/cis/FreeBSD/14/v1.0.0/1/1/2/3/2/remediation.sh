@@ -1,0 +1,1 @@
+<device> /var <fstype> rw,nosuid,noexec 0 0

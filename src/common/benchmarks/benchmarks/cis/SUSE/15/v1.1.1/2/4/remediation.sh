@@ -1,0 +1,1 @@
+# zypper remove <package_name>

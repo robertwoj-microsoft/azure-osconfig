@@ -15,4 +15,5 @@ target_include_directories(asb PUBLIC
 target_link_libraries(asb PRIVATE 
     logging 
     commonutils 
-    parsonlib)
+    parsonlib
+    benchmarks)

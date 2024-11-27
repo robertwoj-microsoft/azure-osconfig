@@ -1,0 +1,1 @@
+# firewall-cmd --remove-service=<service>

@@ -1,0 +1,1 @@
+# nft list ruleset | awk '/hook input/,/}/' | grep -E 'ip protocol (tcp|udp) ct state'

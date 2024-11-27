@@ -1,0 +1,1 @@
+# authselect list | grep '^-\s*custom'

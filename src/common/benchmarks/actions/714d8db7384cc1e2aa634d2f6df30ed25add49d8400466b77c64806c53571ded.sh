@@ -1,0 +1,1 @@
+$ fetch http://update.freebsd.org/14.0-RELEASE/amd64/pub.ssl

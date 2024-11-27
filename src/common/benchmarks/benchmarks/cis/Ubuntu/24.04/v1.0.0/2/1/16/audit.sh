@@ -1,0 +1,1 @@
+# dpkg-query -s tftpd-hpa &>/dev/null && echo "tftpd-hpa is installed"

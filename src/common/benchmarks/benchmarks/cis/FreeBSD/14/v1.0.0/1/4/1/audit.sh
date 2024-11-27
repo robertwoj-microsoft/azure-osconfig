@@ -1,0 +1,1 @@
+# [ $(sysctl -nq kern.elf64.aslr.enable) -eq 1 ] && printf "ASLR is enabled\n" || printf "ASLR is disabled\n"

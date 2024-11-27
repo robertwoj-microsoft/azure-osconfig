@@ -1,0 +1,1 @@
+# grep -roP "timestamp_timeout=\K[0-9]*" /etc/sudoers*

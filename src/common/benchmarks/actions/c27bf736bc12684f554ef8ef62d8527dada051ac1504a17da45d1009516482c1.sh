@@ -1,0 +1,1 @@
+# grep -Pi '^\h*LEGACY\b' /etc/crypto-policies/config

@@ -1,0 +1,1 @@
+sed -i '' 's|^#PermitUserEnvironment.*|PermitUserEnvironment no' /etc/ssh/sshd_config

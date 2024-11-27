@@ -1,0 +1,2 @@
+# [ $(sysctl -nq net.inet.ip.forwarding) -eq 1 ] && printf "IPv4 Forwarding is Enabled\n" || printf "IPv4 Forwarding is Disabled\n"
+# [ $(sysctl -nq net.inet6.ip.forwarding) -eq 1 ] && printf "IPv6 Forwarding is Enabled\n" || printf "IPv6 Forwarding is Disabled\n"

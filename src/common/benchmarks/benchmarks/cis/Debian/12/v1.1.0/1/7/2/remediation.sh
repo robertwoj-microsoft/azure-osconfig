@@ -1,0 +1,1 @@
+# gsettings set org.gnome.login-screen banner-message-text 'Authorized uses only. All activity may be monitored and reported'

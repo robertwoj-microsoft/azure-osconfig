@@ -1,0 +1,1 @@
+# dpkg-query -s cups &>/dev/null && echo "cups is installed"

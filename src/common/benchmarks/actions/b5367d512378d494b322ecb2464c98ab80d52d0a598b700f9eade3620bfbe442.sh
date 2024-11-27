@@ -1,0 +1,1 @@
+# [ $(sysctl -nq net.inet.tcp.syncookies) -eq 1 ] && printf "TCP syncookies are enabled\n" || printf "TCP syncookies are NOT enabled\n"

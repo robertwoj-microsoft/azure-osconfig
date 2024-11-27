@@ -1,0 +1,3 @@
+# sshd -T -C user=root -C host="$(hostname)" -C addr="$(hostname -I | cut -d ' ' -f1)" | grep permitrootlogin
+
+permitrootlogin no

@@ -1,0 +1,1 @@
+# ps -ef | awk '(/[n]tpd/ && $1!="ntp") { print $1 }'

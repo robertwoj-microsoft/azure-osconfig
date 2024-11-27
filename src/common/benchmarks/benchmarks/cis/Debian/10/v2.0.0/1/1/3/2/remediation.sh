@@ -1,0 +1,1 @@
+<device> /var <fstype> defaults,rw,nosuid,nodev,relatime 0 0

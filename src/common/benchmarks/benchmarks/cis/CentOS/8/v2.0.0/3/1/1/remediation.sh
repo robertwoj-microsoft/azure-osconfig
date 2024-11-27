@@ -1,0 +1,1 @@
+grubby --update-kernel ALL --args 'ipv6.disable=1'

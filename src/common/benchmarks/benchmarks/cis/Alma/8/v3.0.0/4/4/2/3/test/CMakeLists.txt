@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_Alma_8_v3_0_0_4_4_2_3 Alma_8_v3.0.0_4_4_2_3_test.cpp)
+target_link_libraries(test_benchmarks_cis_Alma_8_v3_0_0_4_4_2_3 PRIVATE GTest::GTest GTest::Main benchmarks_cis_Alma_8_v3_0_0_4_4_2_3)
+
+gtest_discover_tests(test_benchmarks_cis_Alma_8_v3_0_0_4_4_2_3 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

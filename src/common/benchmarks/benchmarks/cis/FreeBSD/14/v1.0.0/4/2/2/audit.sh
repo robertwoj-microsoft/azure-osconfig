@@ -1,0 +1,1 @@
+# find /etc/ssh -type f -name "ssh_host_*_key" -exec stat -Lf 'Access: (%Lp/%Sp) Uid: ( %u/ %Su) Gid: ( %g/ %Sg) File: %N' {} \;

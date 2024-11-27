@@ -1,0 +1,7 @@
+#!/bin/bash
+
+grep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != "'"$(which nologin)"'" & do
+ if [ ! -d "$dir" ]; then
+ echo "The home directory ($dir) of user $user does not exist."
+ fi
+done

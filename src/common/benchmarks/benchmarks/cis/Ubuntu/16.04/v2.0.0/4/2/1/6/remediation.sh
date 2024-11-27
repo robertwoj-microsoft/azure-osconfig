@@ -1,0 +1,3 @@
+$ModLoad imtcp
+
+$InputTCPServerRun 514

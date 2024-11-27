@@ -1,0 +1,1 @@
+password required pam_pwhistory.so remember=24 enforce_for_root try_first_pass use_authtok

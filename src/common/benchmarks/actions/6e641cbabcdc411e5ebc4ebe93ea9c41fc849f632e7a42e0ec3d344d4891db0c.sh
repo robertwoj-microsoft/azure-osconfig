@@ -1,0 +1,1 @@
+# [ -f /etc/issue.net ] && cat /etc/issue.net

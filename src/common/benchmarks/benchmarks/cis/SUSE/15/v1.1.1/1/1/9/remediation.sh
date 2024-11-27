@@ -1,0 +1,1 @@
+# mount -o remount,noexec,nodev,nosuid /dev/shm

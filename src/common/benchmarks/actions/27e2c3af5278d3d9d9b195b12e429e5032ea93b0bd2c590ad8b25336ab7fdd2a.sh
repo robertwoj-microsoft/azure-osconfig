@@ -1,0 +1,1 @@
+# grep -Pi -- '^\h*auth\h+([^#\n\r]+)\h+pam_faillock\.so\h+(preauth|authfail)\h+([^#\n\r]+\h+)?unlock_time=(0|9[0-9][0-9]|[1-9][0-9]{3,})\b' /etc/pam.d/{system,password}-auth

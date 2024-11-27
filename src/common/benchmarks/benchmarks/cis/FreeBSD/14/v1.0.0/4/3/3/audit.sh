@@ -1,0 +1,1 @@
+# grep -rEsi "^\s*Defaults\s+([^#]+,\s*)?logfile\s*=\s*(\"|\')?\S+(\"|\')?(,\s*\S+\s*)*\s*(#.*)?$" /usr/local/etc/sudoers*

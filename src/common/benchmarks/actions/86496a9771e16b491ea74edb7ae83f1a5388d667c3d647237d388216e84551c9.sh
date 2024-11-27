@@ -1,0 +1,1 @@
+# find /etc/ssh -type f -name "ssh_host_*_key.pub" -exec sh -c "chown -vv root:wheel {}; chmod -vv 644 {}" \;

@@ -1,0 +1,1 @@
+# systemctl list-unit-files | awk '$1~/^dailyaidecheck\.(timer|service)$/{print $1 "\t" $2}'

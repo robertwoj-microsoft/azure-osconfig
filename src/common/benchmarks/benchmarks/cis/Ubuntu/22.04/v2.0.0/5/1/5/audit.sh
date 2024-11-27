@@ -1,0 +1,1 @@
+# sshd -T | grep -Pi -- '^banner\h+\/\H+'

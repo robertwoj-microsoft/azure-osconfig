@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_Ubuntu_18_04_v2_2_0_4_1_8 Ubuntu_18.04_v2.2.0_4_1_8_test.cpp)
+target_link_libraries(test_benchmarks_cis_Ubuntu_18_04_v2_2_0_4_1_8 PRIVATE GTest::GTest GTest::Main benchmarks_cis_Ubuntu_18_04_v2_2_0_4_1_8)
+
+gtest_discover_tests(test_benchmarks_cis_Ubuntu_18_04_v2_2_0_4_1_8 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

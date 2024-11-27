@@ -1,0 +1,1 @@
+minclass = 4

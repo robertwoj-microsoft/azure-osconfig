@@ -1,0 +1,1 @@
+<[server|pool]> <[remote-server|remote-pool]>

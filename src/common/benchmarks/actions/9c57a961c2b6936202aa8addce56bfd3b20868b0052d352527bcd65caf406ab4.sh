@@ -1,0 +1,1 @@
+password requisite pam_passwdqc.so enforce=everyone minlen=disabled,14,12,8,6'

@@ -1,0 +1,1 @@
+password [success=1 default=ignore] pam_unix.so sha512

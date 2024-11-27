@@ -1,0 +1,1 @@
+# vi /etc/sysconfig/nftables.conf

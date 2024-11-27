@@ -1,0 +1,1 @@
+# dpkg-query -s libpam-modules | grep -P -- '^(Status|Version)\b'

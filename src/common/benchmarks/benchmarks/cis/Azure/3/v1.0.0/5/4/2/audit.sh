@@ -1,0 +1,1 @@
+# grep -P '^\h*auth\h+[^#\n\r]+\h+pam_faillock.so\s+' /etc/pam.d/system-password /etc/pam.d/system-auth

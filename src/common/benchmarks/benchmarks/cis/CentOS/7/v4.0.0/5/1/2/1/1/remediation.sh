@@ -1,0 +1,1 @@
+# yum install system-journal-gateway

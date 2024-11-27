@@ -1,0 +1,1 @@
+# kldstat -q -m ext2fs && printf "ext2fs kernel module is loaded\n" || printf "ext2fs kernel module is NOT loaded\n"

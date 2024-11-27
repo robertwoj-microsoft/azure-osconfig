@@ -1,0 +1,1 @@
+# rpm -q pam

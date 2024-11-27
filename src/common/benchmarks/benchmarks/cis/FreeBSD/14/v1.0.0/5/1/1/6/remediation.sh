@@ -1,0 +1,1 @@
+# sysrc syslogd_flags+=" -s"

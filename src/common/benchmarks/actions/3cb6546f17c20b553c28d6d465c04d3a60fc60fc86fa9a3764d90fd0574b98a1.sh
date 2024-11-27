@@ -1,0 +1,1 @@
+# echo "Authorized use only. All activity may be monitored and reported." > /etc/issue.net

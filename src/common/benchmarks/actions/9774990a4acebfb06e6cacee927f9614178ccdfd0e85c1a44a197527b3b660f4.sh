@@ -1,0 +1,1 @@
+# pam-config -a --cracklib-minlen=14 --cracklib-retry=3 --cracklib-lcredit=-1 --cracklib-ucredit=-1 --cracklib-dcredit=-1 --cracklib-ocredit=-1 --cracklib

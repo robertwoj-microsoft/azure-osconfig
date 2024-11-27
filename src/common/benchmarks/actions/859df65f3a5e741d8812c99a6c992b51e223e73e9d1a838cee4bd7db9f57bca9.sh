@@ -1,0 +1,1 @@
+# findnmt -n /dev/shm | grep -v nosuid

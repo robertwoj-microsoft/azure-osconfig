@@ -1,0 +1,1 @@
+# grep -Psi -- '^\h*(minclass|[dulo]credit)\b' /etc/security/pwquality.conf

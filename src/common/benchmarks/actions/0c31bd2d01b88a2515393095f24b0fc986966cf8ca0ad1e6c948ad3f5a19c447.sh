@@ -1,0 +1,1 @@
+# ufw allow in <port>/<tcp or udp protocol>

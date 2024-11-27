@@ -1,0 +1,1 @@
+# grep -P -- '^\h*password\h+([^#\n\r]+)\h+pam_unix\.so\h+([^#\n\r]+\h+)?sha512\b' /etc/pam.d/{password,system}-auth

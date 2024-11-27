@@ -1,0 +1,1 @@
+# grep -P -- '^\h*(server|pool)\h+\H+' /etc/ntp.conf

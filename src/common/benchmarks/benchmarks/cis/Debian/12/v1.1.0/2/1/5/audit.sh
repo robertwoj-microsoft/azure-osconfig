@@ -1,0 +1,1 @@
+# dpkg-query -s dnsmasq &>/dev/null && echo "dnsmasq is installed"

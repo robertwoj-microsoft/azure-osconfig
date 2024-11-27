@@ -1,0 +1,1 @@
+# dpkg-query -s apache2 &>/dev/null && echo "apache2 is installed"

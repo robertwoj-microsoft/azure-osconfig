@@ -1,0 +1,1 @@
+grubby --update-kernel ALL --remove-args 'selinux=0 enforcing=0'

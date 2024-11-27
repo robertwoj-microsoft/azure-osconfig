@@ -1,0 +1,1 @@
+# awk -F: '($2 == "*" ) { print $1 " is not set to shadowed passwords "}' /etc/master.passwd

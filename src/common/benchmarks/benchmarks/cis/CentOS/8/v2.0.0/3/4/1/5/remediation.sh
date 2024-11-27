@@ -1,0 +1,1 @@
+# firewall-cmd --set-default-zone=<NAME_OF_ZONE>

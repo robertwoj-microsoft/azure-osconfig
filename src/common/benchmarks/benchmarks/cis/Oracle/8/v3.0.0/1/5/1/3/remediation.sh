@@ -1,0 +1,1 @@
+SELINUXTYPE=targeted

@@ -1,0 +1,1 @@
+# mount -p | grep -E '\s\/tmp'

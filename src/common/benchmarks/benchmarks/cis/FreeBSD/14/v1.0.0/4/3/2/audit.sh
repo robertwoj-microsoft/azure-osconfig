@@ -1,0 +1,1 @@
+# grep -rEi '^\s*Defaults\s+([^#\n\r]+,)?use_pty(,\s*\s+\s*)*\s*(#.*)?$' /usr/local/etc/sudoers*

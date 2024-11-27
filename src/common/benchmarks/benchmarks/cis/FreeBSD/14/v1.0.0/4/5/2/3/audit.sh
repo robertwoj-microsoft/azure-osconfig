@@ -1,0 +1,1 @@
+# awk -F: '($1!~/^(root|toor|uucp)$/ || $3 == 65533) && $7!~/^(\/usr)?\/sbin\/nologin$/ { print $1 }' /etc/passwd

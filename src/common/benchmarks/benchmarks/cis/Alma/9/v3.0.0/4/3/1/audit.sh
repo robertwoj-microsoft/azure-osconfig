@@ -1,0 +1,1 @@
+# nft list ruleset | grep 'hook input'

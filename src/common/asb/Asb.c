@@ -13,6 +13,7 @@
 #include <SshUtils.h>
 #include <Logging.h>
 #include <Asb.h>
+#include "../benchmarks/benchmarks/benchmarks.h"
 
 #define RETURN_REASON_IF_ZERO(call) {\
     if (0 == (call)) {\
@@ -808,6 +809,8 @@ const BASELINE_RULE g_rules[] =
     { "Ensure SMB V1 with Samba is disabled (CIS: L1 - Server - 2.2.12)", "7624efb0-3026-4c72-8920-48d5be78a50e", "EnsureSmbWithSambaIsDisabled" }
 };
 
+static struct benchmarks g_benchmarks;
+
 int AsbIsValidResourceIdRuleId(const char* resourceId, const char* ruleId, const char* payloadKey, void* log)
 {
     int numRules = ARRAY_SIZE(g_rules);
@@ -915,13 +918,15 @@ void AsbInitialize(void* log)
         OsConfigLogInfo(log, "AsbInitialize: running on product '%s'", PRODUCT_NAME_AZURE_COMMODORE);
     }
 
+    g_benchmarks = benchmarks_init();
+
     OsConfigLogInfo(log, "%s initialized", g_asbName);
 }
 
 void AsbShutdown(void* log)
 {
     OsConfigLogInfo(log, "%s shutting down", g_asbName);
-        
+
     FREE_MEMORY(g_desiredEnsurePermissionsOnEtcIssue);
     FREE_MEMORY(g_desiredEnsurePermissionsOnEtcIssueNet);
     FREE_MEMORY(g_desiredEnsurePermissionsOnEtcHostsAllow);
@@ -3969,7 +3974,12 @@ int AsbMmiGet(const char* componentName, const char* objectName, char** payload,
     }
     else
     {
-        if (0 == strcmp(objectName, g_auditEnsurePermissionsOnEtcIssueObject))
+        if (strstr(objectName, "/benchmarks"))
+        {
+            OsConfigLogInfo(log, "AsbMmiGet called for CIS object %s", objectName);
+            benchmarks_audit(&g_benchmarks, objectName + strlen("/benchmarks"), log);
+            result = strdup("Benchmark audit result");
+        } else if (0 == strcmp(objectName, g_auditEnsurePermissionsOnEtcIssueObject))
         {
             result = AuditEnsurePermissionsOnEtcIssue(log);
         }
@@ -5525,7 +5535,7 @@ int AsbMmiSet(const char* componentName, const char* objectName, const char* pay
             status = InitEnsureAppropriateCiphersForSsh(jsonString, log);
         }
         else if (0 == strcmp(objectName, g_initEnsurePermissionsOnEtcIssueObject))
-        { 
+        {
             status = InitEnsurePermissionsOnEtcIssue(jsonString);
         }
         else if (0 == strcmp(objectName, g_initEnsurePermissionsOnEtcIssueNetObject))

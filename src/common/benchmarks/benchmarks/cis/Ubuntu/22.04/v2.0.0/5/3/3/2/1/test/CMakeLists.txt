@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_Ubuntu_22_04_v2_0_0_5_3_3_2_1 Ubuntu_22.04_v2.0.0_5_3_3_2_1_test.cpp)
+target_link_libraries(test_benchmarks_cis_Ubuntu_22_04_v2_0_0_5_3_3_2_1 PRIVATE GTest::GTest GTest::Main benchmarks_cis_Ubuntu_22_04_v2_0_0_5_3_3_2_1)
+
+gtest_discover_tests(test_benchmarks_cis_Ubuntu_22_04_v2_0_0_5_3_3_2_1 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

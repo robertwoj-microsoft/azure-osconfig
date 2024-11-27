@@ -1,0 +1,1 @@
+# rpm -qa xorg-x11-server*

@@ -1,0 +1,1 @@
+# dpkg-query -s libpam-runtime | grep -P -- '^(Status|Version)\b'

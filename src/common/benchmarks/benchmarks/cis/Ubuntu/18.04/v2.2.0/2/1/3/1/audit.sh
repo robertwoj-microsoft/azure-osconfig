@@ -1,0 +1,1 @@
+# grep -Ph '^\h*(NTP|FallbackNTP)=\H+' /etc/systemd/timesyncd.conf

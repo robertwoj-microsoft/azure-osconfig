@@ -1,0 +1,1 @@
+# sshd -T | grep -Pi -- '^\h*(allow|deny)(users|groups)\h+\H+'

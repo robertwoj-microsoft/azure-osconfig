@@ -1,0 +1,1 @@
+# grep -Pi '^\h*CRYPTO_POLICY\h*=' /etc/sysconfig/sshd

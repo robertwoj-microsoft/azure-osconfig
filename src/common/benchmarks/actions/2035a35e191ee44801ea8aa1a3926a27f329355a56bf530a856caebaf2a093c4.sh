@@ -1,0 +1,1 @@
+# zypper list-updates

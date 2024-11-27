@@ -1,0 +1,1 @@
+# grep -E -- '^\s:passwordtime=' /etc/login.conf

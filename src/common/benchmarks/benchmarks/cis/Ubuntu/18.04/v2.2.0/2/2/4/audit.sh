@@ -1,0 +1,1 @@
+# dpkg-query -s isc-dhcp-server &>/dev/null && echo "isc-dhcp-server is installed"

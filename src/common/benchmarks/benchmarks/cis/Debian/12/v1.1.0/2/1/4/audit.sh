@@ -1,0 +1,1 @@
+# dpkg-query -s bind9 &>/dev/null && echo "bind9 is installed"

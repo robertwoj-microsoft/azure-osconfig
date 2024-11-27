@@ -1,0 +1,1 @@
+<device> /boot/efi vfat defaults,umask=0027,fmask=0077,uid=0,gid=0 0 0

@@ -1,0 +1,1 @@
+# dpkg-query -s nfs-kernel-server &>/dev/null && echo "nfs-kernel-server is installed"

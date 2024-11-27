@@ -1,0 +1,1 @@
+# firewall-cmd --zone=<Zone NAME> --change-interface=<INTERFACE NAME>

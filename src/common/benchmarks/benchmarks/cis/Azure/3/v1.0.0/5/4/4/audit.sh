@@ -1,0 +1,1 @@
+# grep -P '^\h*password\h+[^#\n\r]+\h+pam_pwhistory\.so\h+([^#\n\r]+\h+)?remember=([5-9]|[1-9][0-9]+)\b' /etc/pam.d/system-password /etc/pam.d/system-auth

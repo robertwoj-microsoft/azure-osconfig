@@ -1,0 +1,1 @@
+# [ $(sysctl -nq net.inet.ip.accept_sourceroute) -eq 1 ] && printf "IP Source Routes are accepted\n" || printf "IP Source Routes are not accepted\n"

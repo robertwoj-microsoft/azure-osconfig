@@ -1,0 +1,1 @@
+<device> /var/tmp <fstype> defaults,rw,nosuid,nodev,noexec,relatime 0 0

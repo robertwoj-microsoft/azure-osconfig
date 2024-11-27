@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_RHEL_7_v4_0_0_3_3_7 RHEL_7_v4.0.0_3_3_7_test.cpp)
+target_link_libraries(test_benchmarks_cis_RHEL_7_v4_0_0_3_3_7 PRIVATE GTest::GTest GTest::Main benchmarks_cis_RHEL_7_v4_0_0_3_3_7)
+
+gtest_discover_tests(test_benchmarks_cis_RHEL_7_v4_0_0_3_3_7 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

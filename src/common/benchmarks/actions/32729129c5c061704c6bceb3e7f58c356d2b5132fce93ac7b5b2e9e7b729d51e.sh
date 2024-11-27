@@ -1,0 +1,1 @@
+sed -i '' -e 's|^#UsePAM.*yes|UsePAM yes|g' /etc/ssh/sshd_config

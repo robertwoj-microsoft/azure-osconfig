@@ -1,0 +1,3 @@
+# grep -Psi -- '^\h*dictcheck\h*=\h*0\b' /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+
+Nothing should be returned

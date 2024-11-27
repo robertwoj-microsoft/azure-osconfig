@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_Debian_11_v2_0_0_1_1_1_4 Debian_11_v2.0.0_1_1_1_4_test.cpp)
+target_link_libraries(test_benchmarks_cis_Debian_11_v2_0_0_1_1_1_4 PRIVATE GTest::GTest GTest::Main benchmarks_cis_Debian_11_v2_0_0_1_1_1_4)
+
+gtest_discover_tests(test_benchmarks_cis_Debian_11_v2_0_0_1_1_1_4 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

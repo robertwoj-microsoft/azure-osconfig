@@ -1,0 +1,1 @@
+# systemctl --now mask autofs

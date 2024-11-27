@@ -1,0 +1,1 @@
+# dpkg-query -l | grep -E 'ftp|tnftp' &>/dev/null && echo "ftp is installed"

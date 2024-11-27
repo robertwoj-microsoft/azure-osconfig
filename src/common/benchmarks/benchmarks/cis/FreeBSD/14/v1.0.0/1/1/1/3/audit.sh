@@ -1,0 +1,1 @@
+# kldstat -q -m zfs && printf "zfs kernel module is loaded\n" || printf "zfs kernel module is NOT loaded\n"

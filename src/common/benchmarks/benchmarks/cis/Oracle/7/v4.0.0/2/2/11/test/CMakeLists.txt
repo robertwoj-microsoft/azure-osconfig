@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_Oracle_7_v4_0_0_2_2_11 Oracle_7_v4.0.0_2_2_11_test.cpp)
+target_link_libraries(test_benchmarks_cis_Oracle_7_v4_0_0_2_2_11 PRIVATE GTest::GTest GTest::Main benchmarks_cis_Oracle_7_v4_0_0_2_2_11)
+
+gtest_discover_tests(test_benchmarks_cis_Oracle_7_v4_0_0_2_2_11 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

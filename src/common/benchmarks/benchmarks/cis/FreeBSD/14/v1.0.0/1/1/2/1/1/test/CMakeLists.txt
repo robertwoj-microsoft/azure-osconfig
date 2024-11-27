@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.2)
+
+find_package(GTest REQUIRED)
+
+add_executable(test_benchmarks_cis_FreeBSD_14_v1_0_0_1_1_2_1_1 FreeBSD_14_v1.0.0_1_1_2_1_1_test.cpp)
+target_link_libraries(test_benchmarks_cis_FreeBSD_14_v1_0_0_1_1_2_1_1 PRIVATE GTest::GTest GTest::Main benchmarks_cis_FreeBSD_14_v1_0_0_1_1_2_1_1)
+
+gtest_discover_tests(test_benchmarks_cis_FreeBSD_14_v1_0_0_1_1_2_1_1 XML_OUTPUT_DIR ${GTEST_OUTPUT_DIR})

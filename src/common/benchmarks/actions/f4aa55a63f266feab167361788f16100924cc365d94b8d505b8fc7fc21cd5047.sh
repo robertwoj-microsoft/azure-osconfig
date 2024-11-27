@@ -1,0 +1,1 @@
+# grep "^*.*[^I][^I]*@" /etc/syslog.conf /etc/syslog.d/*.conf /usr/local/etc/syslog.d/*.conf

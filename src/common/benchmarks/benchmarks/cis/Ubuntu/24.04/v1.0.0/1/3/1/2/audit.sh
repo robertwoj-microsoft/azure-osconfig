@@ -1,0 +1,1 @@
+# grep "^\s*linux" /boot/grub/grub.cfg | grep -v "apparmor=1"

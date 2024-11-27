@@ -1,0 +1,1 @@
+<device> /var/log <fstype> defaults,rw,nosuid,nodev,noexec,relatime 0 0

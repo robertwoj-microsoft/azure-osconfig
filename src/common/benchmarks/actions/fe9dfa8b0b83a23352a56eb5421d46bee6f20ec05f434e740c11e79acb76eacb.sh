@@ -1,0 +1,2 @@
+# [ $(sysctl -nq net.inet.ip.redirect) -eq 1 ] && printf "IPv4 Redirect is Enabled\n" || printf "IPv4 Redirect is disabled\n"
+# [ $(sysctl -nq net.inet6.ip6.redirect) -eq 1 ] && printf "IPv6 Redirect is Enabled\n" || printf "IPv6 Redirect is disabled\n"

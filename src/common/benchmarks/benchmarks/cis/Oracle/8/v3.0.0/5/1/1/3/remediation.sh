@@ -1,0 +1,1 @@
+# printf '%s\n' "ForwardToSyslog=yes" > /etc/systemd/journald.conf.d/50-journald_forward.conf

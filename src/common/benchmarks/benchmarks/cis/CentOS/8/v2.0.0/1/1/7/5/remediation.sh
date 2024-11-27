@@ -1,0 +1,1 @@
+<device> /home <fstype> defaults,rw,usrquota,grpquota,nodev,relatime 0 0

@@ -1,0 +1,1 @@
+# grep -P -- '\bpam_pwhistory\.so\b' /etc/pam.d/{password,system}-auth

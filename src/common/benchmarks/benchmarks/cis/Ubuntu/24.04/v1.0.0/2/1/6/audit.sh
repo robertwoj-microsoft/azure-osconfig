@@ -1,0 +1,1 @@
+# dpkg-query -s vsftpd &>/dev/null && echo "vsftpd is installed"

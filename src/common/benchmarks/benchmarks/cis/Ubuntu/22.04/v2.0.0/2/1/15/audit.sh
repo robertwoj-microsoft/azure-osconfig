@@ -1,0 +1,1 @@
+# dpkg-query -s snmpd &>/dev/null && echo "snmpd is installed"

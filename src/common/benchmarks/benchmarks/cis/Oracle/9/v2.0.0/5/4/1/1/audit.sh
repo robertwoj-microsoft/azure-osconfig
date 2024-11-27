@@ -1,0 +1,1 @@
+# grep -Pi -- '^\h*PASS_MAX_DAYS\h+\d+\b' /etc/login.defs

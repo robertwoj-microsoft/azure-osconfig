@@ -1,0 +1,1 @@
+# grep -Ei '\s\s[0,2,4,6,7][0,2,4,6,7][0,2,4,6,7]\b' /etc/newsyslog.conf /etc/newsyslog.conf.d/*

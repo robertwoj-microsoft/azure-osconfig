@@ -1,0 +1,1 @@
+# authselect create-profile <custom-profile name> <options>

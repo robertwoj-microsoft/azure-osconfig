@@ -1,0 +1,1 @@
+# [ $(sysctl -nq kern.features.inet6) -eq 1 ] && printf "IPv6 is enabled\n" || printf "IPv6 is not enabled\n"

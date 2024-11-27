@@ -1,0 +1,1 @@
+# findmnt -n /home | grep -v nodev

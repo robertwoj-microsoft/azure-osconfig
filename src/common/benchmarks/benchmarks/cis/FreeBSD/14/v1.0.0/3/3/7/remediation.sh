@@ -1,0 +1,1 @@
+net.inet6.ip6.accept_rtadv=0

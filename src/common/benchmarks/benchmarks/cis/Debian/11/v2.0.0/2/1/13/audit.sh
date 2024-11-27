@@ -1,0 +1,1 @@
+# dpkg-query -s rsync &>/dev/null && echo "rsync is installed"

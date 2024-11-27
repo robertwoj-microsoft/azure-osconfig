@@ -1,0 +1,1 @@
+# dpkg-query -s dovecot-imapd &>/dev/null && echo "dovecot-imapd is installed"

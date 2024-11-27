@@ -1,0 +1,1 @@
+# dpkg-query -s avahi-daemon &>/dev/null && echo "avahi-daemon is installed"

@@ -1,0 +1,1 @@
+<device> /var/audit <fstype> rw,nosuid,noexec 0 0

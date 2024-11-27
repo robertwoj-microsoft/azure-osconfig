@@ -1,0 +1,1 @@
+# nft add rule inet filter input iif lo accept

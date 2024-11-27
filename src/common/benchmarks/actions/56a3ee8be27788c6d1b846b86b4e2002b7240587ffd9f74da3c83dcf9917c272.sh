@@ -1,0 +1,1 @@
+# grep -Pi -- '^\h*auth\h+([^#\n\r]+)\h+pam_faillock\.so\h+(preauth|authfail)\h+([^#\n\r]+\h+)?deny=[1-5]\b' /etc/pam.d/{system,password}-auth

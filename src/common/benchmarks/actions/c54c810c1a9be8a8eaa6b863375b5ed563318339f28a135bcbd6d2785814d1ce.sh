@@ -1,0 +1,1 @@
+# grep -E -i '^\s*LEGACY\s*(\s+#.*)?$' /etc/crypto-policies/config

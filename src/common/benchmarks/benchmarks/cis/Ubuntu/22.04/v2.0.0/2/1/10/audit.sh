@@ -1,0 +1,1 @@
+# dpkg-query -s ypserv &>/dev/null && echo "ypserv is installed"

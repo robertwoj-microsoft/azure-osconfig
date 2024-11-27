@@ -1,0 +1,1 @@
+# dpkg-query -s rpcbind &>/dev/null && echo "rpcbind is installed"

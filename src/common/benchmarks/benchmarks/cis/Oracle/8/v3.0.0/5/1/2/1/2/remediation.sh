@@ -1,0 +1,4 @@
+URL=192.168.50.42
+ServerKeyFile=/etc/ssl/private/journal-upload.pem
+ServerCertificateFile=/etc/ssl/certs/journal-upload.pem
+TrustedCertificateFile=/etc/ssl/ca/trusted.pem

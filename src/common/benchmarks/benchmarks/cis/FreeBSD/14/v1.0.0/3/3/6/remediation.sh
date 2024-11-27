@@ -1,0 +1,1 @@
+# printf "net.inet.tcp.syncookies=1\n" >> /etc/sysctl.conf

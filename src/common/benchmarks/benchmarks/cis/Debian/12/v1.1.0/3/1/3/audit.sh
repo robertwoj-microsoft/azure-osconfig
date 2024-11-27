@@ -1,0 +1,1 @@
+# dpkg-query -s bluez &>/dev/null && echo "bluez is installed"

@@ -1,0 +1,1 @@
+# [ -f /etc/issue ] && cat /etc/issue

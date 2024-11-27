@@ -1,0 +1,1 @@
+# zypper remove xorg-x11-server*

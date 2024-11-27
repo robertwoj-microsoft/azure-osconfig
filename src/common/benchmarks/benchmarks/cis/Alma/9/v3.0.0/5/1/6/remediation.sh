@@ -1,0 +1,1 @@
+mac@SSH = -HMAC-MD5* -UMAC-64* -UMAC-128*

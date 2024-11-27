@@ -1,0 +1,1 @@
+# grep -r "^[^#].*\!authenticate" /usr/local/etc/sudoers*

@@ -1,0 +1,1 @@
+# rpm -q system-journal-gateway

@@ -1,0 +1,1 @@
+# grep -E -- '^\s*(auth|account|password|session)\s+(requisite|required|sufficient)\s+pam_unix\.so\b' /etc/pam.d/{passwd,system} | grep -E -- '\bnullok\b'

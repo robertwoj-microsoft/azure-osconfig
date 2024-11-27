@@ -1,0 +1,1 @@
+# [ $(sysctl -nq net.inet6.ip6.accept_rtadv) -eq 1 ] && printf "IPv6 Router Advertisements are accepted\n" || printf "IPv6 Router Advertisements are not accepted\n"

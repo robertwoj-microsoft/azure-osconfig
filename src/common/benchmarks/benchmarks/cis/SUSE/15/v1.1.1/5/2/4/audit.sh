@@ -1,0 +1,1 @@
+sshd -T | grep -E '^\s*(allow|deny)(users|groups)\s+\S+'

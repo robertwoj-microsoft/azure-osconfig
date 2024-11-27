@@ -1,0 +1,1 @@
+# dpkg-query -s autofs &>/dev/null && echo "autofs is installed"

@@ -1,0 +1,1 @@
+# dpkg-query -s squid &>/dev/null && echo "squid is installed"

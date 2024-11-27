@@ -1,0 +1,1 @@
+# passwd -S root | awk '$2 ~ /^(P|L)/ {print "User: \"" $1 "\" Password is status: " $2}'

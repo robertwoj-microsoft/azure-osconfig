@@ -1,0 +1,1 @@
+# findmnt -n /var/tmp | grep -v nodev

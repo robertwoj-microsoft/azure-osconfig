@@ -1,0 +1,1 @@
+password requisite pam_pwhistory.so remember=5

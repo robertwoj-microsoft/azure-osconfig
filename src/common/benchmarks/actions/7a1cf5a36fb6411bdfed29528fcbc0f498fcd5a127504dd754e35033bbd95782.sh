@@ -1,0 +1,1 @@
+# zypper remove openldap2-clients

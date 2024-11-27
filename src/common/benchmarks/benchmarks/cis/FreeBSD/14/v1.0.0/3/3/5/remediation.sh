@@ -1,0 +1,1 @@
+# printf "net.inet.ip.accept_sourceroute=0\n" >> /etc/sysctlconf

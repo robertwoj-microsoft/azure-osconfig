@@ -1,0 +1,1 @@
+# grep -P -- '\bpam_pwquality\.so\b' /usr/share/pam-configs/*

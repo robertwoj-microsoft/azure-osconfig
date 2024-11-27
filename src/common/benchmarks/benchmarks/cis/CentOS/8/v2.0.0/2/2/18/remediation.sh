@@ -1,0 +1,1 @@
+# dnf remove nfs-utils

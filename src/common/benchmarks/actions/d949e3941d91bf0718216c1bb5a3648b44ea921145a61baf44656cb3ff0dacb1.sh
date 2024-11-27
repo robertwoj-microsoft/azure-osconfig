@@ -1,0 +1,1 @@
+# sed -ri 's/^\s*dictcheck\s*=/# &/' /etc/security/pwquality.conf

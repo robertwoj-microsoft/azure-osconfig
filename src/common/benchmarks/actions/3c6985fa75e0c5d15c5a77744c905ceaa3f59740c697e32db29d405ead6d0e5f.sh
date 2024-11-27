@@ -1,0 +1,1 @@
+# grep pam_faillock.so /etc/pam.d/password-auth /etc/pam.d/system-auth

@@ -1,0 +1,1 @@
+# dpkg-query -s talk &>/dev/null && echo "talk is installed"

@@ -1,0 +1,1 @@
+# grep -P -- '\bpam_unix\.so\b' /etc/pam.d/{password,system}-auth

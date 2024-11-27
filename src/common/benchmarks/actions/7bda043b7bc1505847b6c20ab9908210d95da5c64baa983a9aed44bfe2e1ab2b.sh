@@ -1,0 +1,1 @@
+ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue

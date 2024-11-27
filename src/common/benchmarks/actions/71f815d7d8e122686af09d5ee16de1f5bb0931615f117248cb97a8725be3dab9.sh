@@ -1,0 +1,1 @@
+# systemctl unmask systemd-timesyncd.service

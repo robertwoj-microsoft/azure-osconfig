@@ -1,0 +1,1 @@
+# dpkg-query -s telnet &>/dev/null && echo "telnet is installed"

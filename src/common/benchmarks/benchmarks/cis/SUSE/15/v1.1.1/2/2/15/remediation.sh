@@ -1,0 +1,1 @@
+# zypper remove net-snmp

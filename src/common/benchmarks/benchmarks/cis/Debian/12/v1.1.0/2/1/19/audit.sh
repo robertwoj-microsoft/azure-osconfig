@@ -1,0 +1,1 @@
+# dpkg-query -s xinetd &>/dev/null && echo "xinetd is installed"

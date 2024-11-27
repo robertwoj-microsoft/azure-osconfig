@@ -1,0 +1,1 @@
+# dnf remove dovecot cyrus-imapd

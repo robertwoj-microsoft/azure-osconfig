@@ -1,0 +1,1 @@
+# stat -Lf 'Access: (%Lp/%Sp) Uid: ( %u/ %Su) Gid: ( %g/ %Sg)' /etc/ssh/sshd_config

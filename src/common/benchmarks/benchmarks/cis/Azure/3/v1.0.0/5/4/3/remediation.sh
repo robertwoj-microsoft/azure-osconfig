@@ -1,0 +1,1 @@
+password sufficient pam_unix.so sha512

@@ -1,0 +1,1 @@
+# grep ^\s*ForwardToSyslog /etc/systemd/journald.conf

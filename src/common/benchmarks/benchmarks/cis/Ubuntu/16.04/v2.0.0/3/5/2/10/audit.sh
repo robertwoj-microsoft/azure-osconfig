@@ -1,0 +1,1 @@
+# [ -n "$(grep -E '^\s*include' /etc/nftables.conf)" ] &print $2 }' /etc/nftables.conf)

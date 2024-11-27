@@ -1,0 +1,2 @@
+# [ $(sysctl -nq net.inet.icmp.bmcastecho) -eq 1 ] && printf "Broadcast and Multicast ICMP ECHO requests are accepted\n" || printf "Broadcast and Multicast ICMP ECHO requests are not accepted\n"
+# [ $(sysctl -nq net.inet.icmp.tstamprepl) -eq 1 ] && printf "Broadcast and Multicast ICMP TIMESTAMP requests are accepted\n" || printf "Broadcast and Multicast ICMP TIMESTAMP requests are not accepted\n"

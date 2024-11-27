@@ -1,0 +1,1 @@
+# dpkg-query -l | grep -E 'telnet|inetutils-telnet' &>/dev/null && echo "telnet is installed"

@@ -1,0 +1,1 @@
+# dpkg-query -s slapd &>/dev/null && echo "slapd is installed"

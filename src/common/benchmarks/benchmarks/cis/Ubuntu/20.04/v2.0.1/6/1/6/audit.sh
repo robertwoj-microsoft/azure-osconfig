@@ -1,0 +1,1 @@
+# stat -Lc "%n %a %u/%U %g/%G" /etc/shadow-

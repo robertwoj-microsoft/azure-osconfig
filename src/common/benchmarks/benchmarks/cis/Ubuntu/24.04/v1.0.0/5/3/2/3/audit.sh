@@ -1,0 +1,1 @@
+# grep -P -- '\bpam_pwquality\.so\b' /etc/pam.d/common-password
