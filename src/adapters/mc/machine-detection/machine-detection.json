@@ -1,0 +1,52 @@
+{
+  "properties": {
+    "displayName": "Set Custom Tag from Machine Configuration",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "parameters": {
+      "customTagValue": {
+        "type": "String",
+        "metadata": {
+          "description": "Value extracted from machine configuration"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+          },
+          {
+            "field": "Microsoft.GuestConfiguration/guestConfigurationAssignments/report",
+            "contains": "test"
+          },
+          {
+            "field": "tags['CustomTag']",
+            "exists": "false"
+          }
+        ]
+      },
+      "then": {
+        "effect": "Modify",
+        "details": {
+          "type": "Microsoft.Resources/tags",
+          "name": "setCustomTag",
+          "existenceCondition": {
+            "field": "tags['CustomTag']",
+            "exists": "false"
+          },
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/your-role-definition-id"
+          ],
+          "properties": {
+            "tags": {
+              "CustomTag": "[field('Microsoft.GuestConfiguration/guestConfigurationAssignments/report/complianceReason')]"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "properties": {
+    "displayName": "Add _arc_machine_type_ to all resources",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "This policy adds the custom tag 'testing-tag' to all resources.",
+    "metadata": {
+      "category": "Tags"
+    },
+    "parameters": {
+      "tagValue": {
+        "type": "String",
+        "defaultValue": "Ubuntu-22.04",
+        "metadata": {
+          "displayName": "Tag Value",
+          "description": "The value to assign to the testing-tag."
+        },
+        "allowedValues": [
+          "Ubuntu-20.04",
+          "Ubuntu-22.04",
+          "RHEL-9"
+        ]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "notEquals": "Microsoft.Authorization/policyAssignments"
+          },
+          {
+            "field": "[concat('tags[', '_arc_machine_type_', ']')]",
+            "notEquals": "[parameters('tagValue')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "modify",
+        "details": {
+          "operations": [
+            {
+              "operation": "addOrReplace",
+              "field": "[concat('tags[', '_arc_machine_type_', ']')]",
+              "value": "[parameters('tagValue')]"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

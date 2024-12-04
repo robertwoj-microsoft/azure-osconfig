@@ -1,0 +1,3330 @@
+instance of OsConfigResource {
+    ResourceID = "Ensure cramfs kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure freevxfs kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure hfs kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure hfsplus kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure jffs2 kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure usb-storage kernel module is not available";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/1/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure /tmp is a separate partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure noexec option set on /tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure /dev/shm is a separate partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /dev/shm partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /dev/shm partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure noexec option set on /dev/shm partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /home partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /home partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /var partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /var partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/4/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /var/tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /var/tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure noexec option set on /var/tmp partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/5/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /var/log partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /var/log partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure noexec option set on /var/log partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/6/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nodev option set on /var/log/audit partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nosuid option set on /var/log/audit partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure noexec option set on /var/log/audit partition";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/1/2/7/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure gpgcheck is globally activated";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure updates, patches, and additional security software are installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure bootloader password is set";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on bootloader config are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure authentication required for single user mode";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure address space layout randomization (ASLR) is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ptrace_scope is restricted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure core dump backtraces are disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure core dump storage is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/4/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure SELinux is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure SELinux is not disabled in bootloader configuration";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure SELinux policy is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure the SELinux mode is not disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure the MCS Translation Service (mcstrans) is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure SETroubleshoot is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/5/1/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure message of the day is configured properly";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure local login warning banner is configured properly";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure remote login warning banner is configured properly";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure access to /etc/motd is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure access to /etc/issue is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure access to /etc/issue.net is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/6/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM login banner is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM disable-user-list option is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM screen locks when the user is idle";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM screen locks cannot be overridden";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM automatic mounting of removable media is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM disabling automatic mounting of removable media is not overridden";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM autorun-never is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure GDM autorun-never is not overridden";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/9";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/9/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/9/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/9/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure XDMCP is not enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/1/7/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure time synchronization is in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure chrony is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure chrony is not run as the root user";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure autofs services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure avahi daemon services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure dhcp server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure dns server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure dnsmasq services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure samba file server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ftp server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure message access server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure network file system services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/9";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/9/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/9/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/9/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nis server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure print server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/11";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/11/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/11/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/11/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rpcbind services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/12";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/12/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/12/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/12/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsync services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/13";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/13/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/13/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/13/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure snmp services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/14";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/14/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/14/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/14/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure telnet server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/15";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/15/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/15/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/15/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure tftp server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/16";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/16/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/16/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/16/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure web proxy server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/17";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/17/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/17/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/17/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure web server services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/18";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/18/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/18/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/18/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure xinetd services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/19";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/19/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/19/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/19/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure mail transfer agents are configured for local-only mode";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/21";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/21/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/21/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/21/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure only approved services are listening on a network interface";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/22";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/22/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/22/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/2/22/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ftp client is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nis client is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure telnet client is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure tftp client is not installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/2/3/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure wireless interfaces are disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure bluetooth services are not in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip forwarding is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure packet redirect sending is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure bogus icmp responses are ignored";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure broadcast icmp requests are ignored";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure icmp redirects are not accepted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure secure icmp redirects are not accepted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure reverse path filtering is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure source routed packets are not accepted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure suspicious packets are logged";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/9";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/9/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/9/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/9/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure tcp syn cookies is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ipv6 router advertisements are not accepted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/11";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/11/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/11/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/3/11/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure a single firewall configuration utility is in use";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure firewalld is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure firewalld service enabled and running";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure firewalld drops unnecessary services and ports";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure network interfaces are assigned to appropriate zone";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables are flushed with nftables";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure an nftables table exists";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables base chains exist";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables loopback traffic is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables outbound and established connections are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables default deny firewall policy";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables service is enabled and active";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure nftables rules are permanent";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/9";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/9/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/9/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/3/9/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables packages are installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables loopback traffic is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables outbound and established connections are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables rules exist for all open ports";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables default deny firewall policy";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables rules are saved";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure iptables service is enabled and active";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/2/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables loopback traffic is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables outbound and established connections are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables firewall rules exist for all open ports";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables default deny firewall policy";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables rules are saved";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure ip6tables is enabled and active";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/3/4/4/3/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure cron daemon is enabled and active";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/crontab are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/cron.hourly are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/cron.daily are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/cron.weekly are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/cron.monthly are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/cron.d are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure crontab is restricted to authorized users";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/1/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure at is restricted to authorized users";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/1/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/ssh/sshd_config are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on SSH private host key files are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on SSH public host key files are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd access is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd Banner is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd Ciphers are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd ClientAliveInterval and ClientAliveCountMax are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd HostbasedAuthentication is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd IgnoreRhosts is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/11";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/11/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/11/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/11/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd KexAlgorithms is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/12";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/12/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/12/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/12/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd LoginGraceTime is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/13";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/13/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/13/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/13/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd LogLevel is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/14";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/14/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/14/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/14/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd MACs are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/15";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/15/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/15/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/15/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd MaxAuthTries is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/16";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/16/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/16/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/16/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd MaxSessions is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/17";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/17/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/17/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/17/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd MaxStartups is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/18";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/18/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/18/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/18/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd PermitEmptyPasswords is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/19";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/19/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/19/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/19/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd PermitRootLogin is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/20";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/20/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/20/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/20/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd PermitUserEnvironment is disabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/21";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/21/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/21/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/21/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sshd UsePAM is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/22";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/22/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/22/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/2/22/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sudo is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sudo commands use pty";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sudo log file exists";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure sudo authentication timeout is configured correctly";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure access to the su command is restricted";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/3/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure latest version of pam is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure libpwquality is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_faillock module is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password failed attempts lockout is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password unlock time is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_pwquality module is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password number of changed characters is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password length is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password complexity is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password same consecutive characters is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password maximum sequential characters is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password dictionary check is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/2/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_pwhistory module is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password history remember is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password history is enforced for the root user";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_pwhistory includes use_authtok";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/3/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_unix does not include nullok";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_unix does not include remember";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_unix includes a strong password hashing algorithm";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure pam_unix includes use_authtok";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/4/2/4/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure strong password hashing algorithm is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password expiration is 365 days or less";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure password expiration warning days is 7 or more";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure inactive password lock is 30 days or less";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure default group for the root account is GID 0";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure system accounts are secured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure root password is set";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure default user shell timeout is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure default user umask is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/4/5/3/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure all logfiles have appropriate access configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsyslog is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsyslog service is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald is configured to send logs to rsyslog";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsyslog default file permissions are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure logging is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsyslog is configured to send logs to a remote log host";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure rsyslog is not configured to receive logs from a remote client";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/1/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald is configured to compress large log files";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald is configured to write logfiles to persistent disk";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald is not configured to send logs to rsyslog";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald log rotation is configured per site policy";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure systemd-journal-remote is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure systemd-journal-remote is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure systemd-journal-remote is enabled";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure journald is not configured to receive logs from a remote client";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/1/2/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure AIDE is installed";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure filesystem integrity is regularly checked";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/5/3/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/passwd are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/passwd- are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/group are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/3";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/3/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/3/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/3/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/group- are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/4";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/4/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/4/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/4/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/shadow are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/5";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/5/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/5/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/5/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/shadow- are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/6";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/6/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/6/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/6/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/gshadow are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/7";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/7/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/7/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/7/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/gshadow- are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/8";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/8/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/8/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/8/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/shells are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/9";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/9/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/9/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/9/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure permissions on /etc/security/opasswd are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure world writable files and directories are secured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/11";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/11/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/11/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/1/11/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure accounts in /etc/passwd use shadowed passwords";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/1";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/1/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure /etc/shadow password fields are not empty";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/2";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/2/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/2/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/2/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure local interactive user home directories are configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/10";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/10/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/10/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/10/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource {
+    ResourceID = "Ensure local interactive user dot files access is configured";
+    PayloadKey = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/11";
+    ComponentName = "CIS_for_Linux";
+    InitObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/11/init";
+    ReportedObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/11/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Oracle/7/v4.0.0/6/2/11/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+

@@ -1,0 +1,42 @@
+instance of OsConfigResource
+{
+    ResourceID = "/initialize";
+    PayloadKey = "/initialize";
+    RuleId = "/initialize";
+    ComponentName = "SecurityBaseline";
+    InitObjectName = "/initialize/init";
+    ReportedObjectName = "/initialize/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/initialize/remediate";
+    DesiredObjectValue = "/benchmarks/cis/Ubuntu/22.04/v2.0.0";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CISForLinux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OsConfigResource
+{
+    ResourceID = "Ensure mounting of cramfs filesystems is disabled";
+    PayloadKey = "/benchmarks/cis/Ubuntu/16.04/v2.0.0/1/1/1/1";
+    RuleId = "1310042D-193F-414A-A7E3-B2C4E89AA537";
+    ComponentName = "SecurityBaseline";
+    InitObjectName = "/benchmarks/cis/Ubuntu/16.04/v2.0.0/1/1/1/1/init";
+    ReportedObjectName = "/benchmarks/cis/Ubuntu/16.04/v2.0.0/1/1/1/1/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/benchmarks/cis/Ubuntu/16.04/v2.0.0/1/1/1/1/remediate";
+    DesiredObjectValue = "";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CIS_for_Linux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OMI_ConfigurationDocument
+{
+    Version="2.0.0";
+    CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+    Author="Microsoft";
+    GenerationDate="10/16/2024 16:38:00 PST";
+    Name="OsConfigSshServerSecurity";
+};

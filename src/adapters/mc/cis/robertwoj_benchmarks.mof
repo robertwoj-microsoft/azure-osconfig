@@ -1,0 +1,25 @@
+instance of OsConfigResource as $OsConfigResource0ref
+{
+    ResourceID = "/initialize";
+    PayloadKey = "/initialize";
+    RuleId = "/initialize";
+    ComponentName = "SecurityBaseline";
+    InitObjectName = "/initialize/init";
+    ReportedObjectName = "/initialize/audit";
+    ExpectedObjectValue = "PASS";
+    DesiredObjectName = "/initialize/remediate";
+    DesiredObjectValue = "/benchmarks/cis/Ubuntu/22.04/v2.0.0";
+    ModuleName = "GuestConfiguration";
+    ModuleVersion = "1.0.0";
+    ConfigurationName = "CISForLinux";
+    SourceInfo = "::4::5::OsConfigResource";
+};
+
+instance of OMI_ConfigurationDocument
+{
+    Version="2.0.0";
+    CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+    Author="Microsoft";
+    GenerationDate="10/16/2024 16:38:00 PST";
+    Name="OsConfigSshServerSecurity";
+};
