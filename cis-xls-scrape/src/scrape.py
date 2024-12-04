@@ -392,7 +392,41 @@ if __name__ == "__main__":
             cis_version = split_path[5]
             csv_file.write(f"{distribution},{version},{cis_version},{'.'.join(split_path[6:])},{api.paths[path]['get'].summary.replace(',','?')}\n")
 
+    # Store paths in buckets based on the distribution and CIS version
+    buckets = dict()
+    for path in api.paths:
+        split_path = path.split('/')
+        bucket_name = '/'.join(split_path[2:6])
+        if bucket_name not in buckets:
+            buckets[bucket_name] = list[str]()
+        buckets[bucket_name].append(path)
 
+    # Print the buckets
+    for bucket_name, bucket in buckets.items():
+        os.makedirs(os.path.join(output_directory, 'mof', bucket_name), exist_ok=True)
+        output_path = os.path.join(output_directory, 'mof', bucket_name, f"{bucket_name.replace('/', '.')}.mof")
+        print(f"Bucket: {bucket_name} -> {output_path}")
+        with open(output_path, 'w') as mof_file:
+            for path in bucket:
+                if 'get' not in api.paths[path] or 'post' not in api.paths[path]:
+                    continue
+                get = api.paths[path]['get']
+                post = api.paths[path]['post']
+                mof_file.write("instance of OsConfigResource {\n")
+                mof_file.write(f'    ResourceID = "{get.summary}";\n')
+                mof_file.write(f'    PayloadKey = "{path}";\n')
+                mof_file.write(f'    ComponentName = "CIS_for_Linux";\n')
+                mof_file.write(f'    InitObjectName = "{path}/init";\n')
+                mof_file.write(f'    ReportedObjectName = "{path}/audit";\n')
+                mof_file.write(f'    ExpectedObjectValue = "PASS";\n')
+                mof_file.write(f'    DesiredObjectName = "{path}/remediate";\n')
+                mof_file.write(f'    DesiredObjectValue = "";\n')
+                mof_file.write(f'    ModuleName = "GuestConfiguration";\n')
+                mof_file.write(f'    ModuleVersion = "1.0.0";\n')
+                mof_file.write(f'    ConfigurationName = "CIS_for_Linux";\n')
+                mof_file.write(f'    SourceInfo = "::4::5::OsConfigResource";\n')
+                mof_file.write("};\n\n")
+            # print(f"- {path}")
     # # Print statistics
     # print("Statistics:")
     # print(f"Total recommentations: {len(all_rules)}")

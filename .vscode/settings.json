@@ -11,6 +11,17 @@
     "editor.formatOnType": true,
     // Use JSON with comments
     "files.associations": {
-        "*.json": "jsonc"
+        "*.json": "jsonc",
+        "cis.h": "c",
+        "benchmarks_common.h": "c",
+        "logging.h": "c",
+        "benchmarks.h": "c",
+        "rhel.h": "c",
+        "9.h": "c",
+        "v2.0.0.h": "c",
+        "1.h": "c",
+        "rhel_9_v2.0.0_1_1_2_5.h": "c",
+        "rhel_9_v2.0.0_1_1_1_1.h": "c",
+        "commonutils.h": "c"
     }
 }

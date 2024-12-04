@@ -14,6 +14,6 @@ for($i=1; $i -le $machines; $i++)
 	podman stop --ignore "arc-playground-$i"
 	podman rm --ignore "arc-playground-$i"
 	Write-Output "Creating container arc-playground-$i"
-	podman run -d -v ${PWD}/arc-playground.env:/app/arc-playground.env:ro --name "arc-playground-$i" azure-arc-playground
+	podman run --cap-add SYS_PTRACE -d -v ${PWD}/arc-playground.env:/app/arc-playground.env:ro --name "arc-playground-$i" azure-arc-playground
 }
 
