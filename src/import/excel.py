@@ -1,12 +1,9 @@
 from enum import Enum
 from os import path
-from pyclbr import Function
-from re import ASCII
 import openpyxl
 import sys
 import input_definitions
 from model import CISBenchmark, FunctionArgument, Recommendation, CISModel, FunctionCall
-from typing import List
 
 class CISLevel(Enum):
     L1 = 1
@@ -46,7 +43,6 @@ def load_benchmark(sheet, level: CISLevel, machine_type: MachineType, distributi
         benchmark.recommendations.append(load_recommendation(row))
 
     return benchmark
-
 
 def parse_CIS_Excel(input_directory: str) -> CISModel:
     if not path.isdir(input_directory):
