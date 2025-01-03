@@ -5,6 +5,7 @@ from model import CISBenchmark
 import sys
 from typing import List
 from excel import parse_CIS_Excel
+from mof import dump_mof
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -13,6 +14,8 @@ if __name__ == "__main__":
 
     input_directory = sys.argv[1]
     output_file = sys.argv[2]
-    benchmarks = parse_CIS_Excel(input_directory)
+    model = parse_CIS_Excel(input_directory)
     with open(output_file, 'w') as f:
-        yaml.dump(asdict(benchmarks), f)
+        yaml.dump(asdict(model), f)
+
+    dump_mof(model.benchmarks, "cis.mof")

@@ -26,7 +26,7 @@ def load_recommendation(row) -> Recommendation:
         # To be filled in, just placeholders for now
         FunctionCall("some function name"),
         FunctionCall("sce_bash", [FunctionArgument("check_file_perms"), FunctionArgument("/etc/passwd")]),
-        FunctionCall("some function name"), [FunctionArgument(int('777', 8))])
+        FunctionCall("check_file_perms", [FunctionArgument("/etc/passwd"), FunctionArgument(int('777', 8))]))
 
 def load_benchmark(sheet, level: CISLevel, machine_type: MachineType, distribution: str, distribution_version: str, version: str) -> CISBenchmark:
     benchmark = CISBenchmark(distribution, distribution_version, version, level.name, machine_type.name)
