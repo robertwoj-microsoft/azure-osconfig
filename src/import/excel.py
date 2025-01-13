@@ -70,29 +70,21 @@ def generic_ensure_file_permissions(row, match, action: str) -> tuple:
         return None
 
     output = None
+    may_not_exist = False
     if row[AUDIT_IDX].startswith('Run the following command'):
         if procedure.startswith('# stat'):
             output = load_stat_command_output(procedure)
         elif procedure.startswith(f"# [ -e \"{filename}\" ] && stat") or procedure.startswith(f"# [ -e {filename} ] && stat"):
             output = load_stat_command_output(procedure)
+            may_not_exist = True
     elif row[AUDIT_IDX].startswith('**- IF -** cron is installed on the system'):
         output = load_stat_command_output(procedure)
+        may_not_exist = True
 
     if not output:
         print(f"Failed to load stat command output for {row[RECOMMENDATION_IDX]} - {row[SUMMARY_IDX]}")
         # print(procedure)
         return None
-
-    # default_value = row[DEFAULT_VALUES_IDX]
-    # if default_value == "File doesn't exist":
-    #     return {
-    #         "ensureFileDoesNotExist": {
-    #             "filename": filename,
-    #         }
-    #     }
-
-    # if default_value is None:
-    #     return None
 
     pattern = r"/[^ ]+ (\d+) \d+/(\w+) \d+/(\w+)"
     match = re.match(pattern, output)
@@ -104,7 +96,8 @@ def generic_ensure_file_permissions(row, match, action: str) -> tuple:
                     "filename": filename,
                     "user": match.group(2),
                     "group": match.group(3),
-                    "permissions": match.group(1),
+                    "$permissions": match.group(1),
+                    "mayNotExist": may_not_exist,
                 }
             }
         )
@@ -119,7 +112,8 @@ def generic_ensure_file_permissions(row, match, action: str) -> tuple:
                     "filename": filename,
                     "user": match.group(2),
                     "group": match.group(3),
-                    "permissions": match.group(1),
+                    "$permissions": match.group(1),
+                    "mayNotExist": may_not_exist,
                 }
             }
         )
@@ -134,7 +128,8 @@ def generic_ensure_file_permissions(row, match, action: str) -> tuple:
                     "filename": filename,
                     "user": match.group(2),
                     "group": match.group(3),
-                    "permissions": match.group(1),
+                    "$permissions": match.group(1),
+                    "mayNotExist": may_not_exist,
                 }
             }
         )
@@ -363,6 +358,7 @@ def generic_ensure_sshd_configuration(row, match, action: str) -> tuple:
 
 known_patterns = {
     r"Ensure permissions on (/[^ ]+) are configured": generic_ensure_file_permissions,
+    r"Ensure access to (/[^ ]+) is configured": generic_ensure_file_permissions,
     r"Ensure (\w+) option set on (/[^ ]+) partition": generic_ensure_partition_options1,
     r"Ensure (/[^ ]+) partition includes the (\w+) option": generic_ensure_partition_options2,
     r"Ensure mounting of (\w+) filesystems is disabled": generic_ensure_mounting_filesystems_disabled,
