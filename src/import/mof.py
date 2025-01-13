@@ -1,5 +1,8 @@
+from dataclasses import asdict
 import json
 from typing import List
+
+import yaml
 from model import CISBenchmark, FunctionArgument, FunctionCall, Recommendation
 import base64
 
@@ -8,7 +11,9 @@ def arg_to_json(arg: FunctionArgument) -> str:
         return f'"{arg.value}"'
     return arg.value
 
-def to_json(func: FunctionCall) -> str:
+def to_json(func: FunctionCall | dict) -> str:
+    if isinstance(func, dict):
+        return json.dumps(func)
     obj = {}
     obj["name"] = func.name
     args = []
@@ -17,16 +22,28 @@ def to_json(func: FunctionCall) -> str:
     obj["args"] = args
     return json.dumps(obj)
 
+def to_yaml(func: FunctionCall | dict) -> str:
+    if isinstance(func, dict):
+        return yaml.dump(func)
+    obj = {}
+    obj["name"] = func.name
+    args = []
+    for arg in func.args:
+        args.append(arg.value)
+    obj["args"] = args
+    return yaml.dump(obj)
+
 def to_mof(distribution: str, distribution_version: str, version: str, level: str, machine_type: str, recommendation: Recommendation) -> str:
     recommendation_id_path = recommendation.recommendation_id.replace(".", "/")
-    payload_key = f"/cis/{distribution}/{distribution_version}/{version}/{level}/{machine_type}/{recommendation_id_path}".replace(".", "_")
+    # payload_key = f"/cis/{distribution}/{distribution_version}/{version}/{level}/{machine_type}/{recommendation_id_path}".replace(".", "_")
+    payload_key = f"/cis/{distribution}/{distribution_version}/{version}/{recommendation_id_path}"
     output = f'instance of OsConfigResource {{\n'
     output += f'    ResourceID = "{recommendation.summary}";\n'
     output += f'    PayloadKey = "{payload_key}";\n'
-    output += f'    RuleId = "PLACEHOLDER";\n'
+    output += f'    RuleId = "PLACEHOLDER - match with MDC json definition";\n'
     output += f'    ComponentName = "SecurityBaseline";\n'
     output += f'    InitObjectName = "{base64.b64encode(to_json(recommendation.init).encode()).decode()}";\n'
-    output += f'    ReportedObjectName = "{base64.b64encode(to_json(recommendation.audit).encode()).decode()}";\n'
+    output += f'    ReportedObjectName = "{base64.b64encode(to_yaml(recommendation.audit).encode()).decode()}";\n'
     output += f'    ExpectedObjectValue = "PASS";\n'
     output += f'    DesiredObjectName = "{base64.b64encode(to_json(recommendation.remediation).encode()).decode()}";\n'
     output += f'    DesiredObjectValue = "";\n'

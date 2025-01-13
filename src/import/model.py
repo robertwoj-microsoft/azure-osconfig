@@ -10,6 +10,28 @@ class FunctionCall:
     name: str
     args: List[FunctionArgument] = field(default_factory=list)
 
+    def to_dict(self):
+        print("xxx")
+        return {
+            self.name: [arg.value for arg in self.args]
+        }
+
+@dataclass
+class OrExpression:
+    expressions: List['Expression'] = field(default_factory=list)
+
+@dataclass
+class AndExpression:
+    expressions: List['Expression'] = field(default_factory=list)
+
+@dataclass
+class NotExpression:
+    expression: 'Expression'
+
+@dataclass
+class Expression:
+    expression: FunctionCall | OrExpression | AndExpression | NotExpression
+
 # This class represents a single entry in the MOF file
 @dataclass
 class Recommendation:
@@ -17,9 +39,9 @@ class Recommendation:
     summary: str
     description: str
     # Run before remediation
-    init: FunctionCall = None
-    audit: FunctionCall = None
-    remediation: FunctionCall = None
+    init: FunctionCall | OrExpression | AndExpression | NotExpression = None
+    audit: FunctionCall | OrExpression | AndExpression | NotExpression = None
+    remediation: FunctionCall | OrExpression | AndExpression | NotExpression = None
     # Default values for user-facing parameters
     external_params: List[FunctionArgument] = field(default_factory=list)
 
@@ -37,3 +59,18 @@ class CISBenchmark:
 @dataclass
 class CISModel:
     benchmarks: List[CISBenchmark] = field(default_factory=list)
+
+
+def dict_factory(model):
+    if isinstance(model, FunctionCall):
+        return {
+            model.name: [arg.value for arg in model.args]
+        }
+    elif isinstance(model, OrExpression):
+        return {"OR": [expr.to_dict() for expr in model.expression.expressions]}
+    elif isinstance(model, AndExpression):
+        return {"AND": [expr.to_dict() for expr in model.expression.expressions]}
+    elif isinstance(model, NotExpression):
+        return {"NOT": model.expression.expression.to_dict()}
+    else:
+        asdict(model)
