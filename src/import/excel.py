@@ -64,13 +64,16 @@ def load_stat_command_output(procedure) -> str:
 
 def generic_ensure_file_permissions(row, match, action: str) -> tuple:
     filename = match.group(1)
+    may_not_exist = False
+    user = None
+    group = None
+    permissions = None
 
     procedure = load_procedure(row, AUDIT_IDX)
     if not procedure:
         return None
 
     output = None
-    may_not_exist = False
     if row[AUDIT_IDX].startswith('Run the following command'):
         if procedure.startswith('# stat'):
             output = load_stat_command_output(procedure)
@@ -89,53 +92,85 @@ def generic_ensure_file_permissions(row, match, action: str) -> tuple:
     pattern = r"/[^ ]+ (\d+) \d+/(\w+) \d+/(\w+)"
     match = re.match(pattern, output)
     if match:
-        return (
-            match.group(1),
-            {
-                "ensureFilePermissions": {
-                    "filename": filename,
-                    "user": match.group(2),
-                    "group": match.group(3),
-                    "$permissions": match.group(1),
-                    "mayNotExist": may_not_exist,
-                }
-            }
-        )
+        user = match.group(2)
+        group = match.group(3)
+        permissions = match.group(1)
 
     pattern = r"Access: \(([01234567]+)/[drwx-]{10}\) Uid: \( \d+/ (\w+)\) Gid: [\(\{] \d+/ (\w+)\)"
     match = re.match(pattern, output)
     if match:
-        return (
-            match.group(1),
-            {
-                "ensureFilePermissions": {
-                    "filename": filename,
-                    "user": match.group(2),
-                    "group": match.group(3),
-                    "$permissions": match.group(1),
-                    "mayNotExist": may_not_exist,
-                }
-            }
-        )
+        user = match.group(2)
+        group = match.group(3)
+        permissions = match.group(1)
 
     pattern = r"/[^ ]+ Access: \(([01234567]+)/[drwx-]{10}\) Uid: \( \d+/ (\w+)\) Gid: [\(\{] \d+/ (\w+)\)"
     match = re.match(pattern, output)
     if match:
+        user = match.group(2)
+        group = match.group(3)
+        permissions = match.group(1)
+
+    if not user or not group or not permissions:
+        print(f"Error: Unable to extract user, group and permissions from {output}")
+        return None
+
+    # Option 3 output
+    if may_not_exist:
         return (
-            match.group(1),
+            permissions,
             {
-                "ensureFilePermissions": {
-                    "filename": filename,
-                    "user": match.group(2),
-                    "group": match.group(3),
-                    "$permissions": match.group(1),
-                    "mayNotExist": may_not_exist,
-                }
+                "OR": [
+                    {
+                        "NOT": [
+                            {
+                                "fileExists": { "filename": filename }
+                            }
+                        ]
+                    },
+                    {
+                        "ensureFilePermissions": {
+                            "filename": filename,
+                            "user": user,
+                            "group": group,
+                            "$permissions": permissions,
+                        }
+                    }
+                ]
+            }
+        )
+    else:
+        return (
+            permissions,
+            {
+                "AND": [
+                    {
+                        "fileExists": { "filename": filename }
+                    },
+                    {
+                        "ensureFilePermissions": {
+                            "filename": filename,
+                            "user": user,
+                            "group": group,
+                            "$permissions": permissions,
+                        }
+                    }
+                ]
             }
         )
 
-    print(f"Error: Invalid output format: {output}")
-    return None
+    # Option 2 output
+    # return (
+    #     permissions,
+    #     {
+    #         "ensureFilePermissions": {
+    #             "filename": filename,
+    #             "user": user,
+    #             "group": group,
+    #             "$permissions": permissions,
+    #             "mayNotExist": may_not_exist,
+    #         }
+    #     }
+    # )
 
 def generic_ensure_partition_options(path: str, option: str, action: str) -> tuple:
     return (
