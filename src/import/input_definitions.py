@@ -18,6 +18,7 @@ def get_input_definitions() -> list[InputDefinition]:
         InputDefinition('Ubuntu/CIS_Ubuntu_Linux_24.04_LTS_Benchmark_v1.0.0.xlsx', 'cis', 'v1.0.0', 'Ubuntu', '24.04'),
 
         InputDefinition('RHEL/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v4.0.0.xlsx', 'cis', 'v4.0.0', 'RHEL', '7'),
+        InputDefinition('RHEL/CIS_Red_Hat_Enterprise_Linux_8_Benchmark_v3.0.0.xlsx', 'cis', 'v4.0.0', 'RHEL', '8'),
         InputDefinition('RHEL/CIS_Red_Hat_Enterprise_Linux_9_Benchmark_v2.0.0.xlsx', 'cis', 'v2.0.0', 'RHEL', '9'),
 
         InputDefinition('SuSE/CIS_SUSE_Linux_Enterprise_12_Benchmark_v3.1.0.xlsx', 'cis', 'v3.1.0', 'SUSE', '12'),
@@ -40,5 +41,5 @@ def get_input_definitions() -> list[InputDefinition]:
         InputDefinition('Azure/CIS_AKS_Optimized_Azure_Linux_Benchmark_v1.0.0.xlsx', 'cis', 'v1.0.0', 'Azure', '2'),
 
         InputDefinition('Alma/CIS_AlmaLinux_OS_8_Benchmark_v3.0.0.xlsx', 'cis', 'v3.0.0', 'Alma', '8'),
-        InputDefinition('Alma/CIS_AlmaLinux_OS_9_Benchmark_v2.0.0.xlsx', 'cis', 'v3.0.0', 'Alma', '9'),
+        InputDefinition('Alma/CIS_AlmaLinux_OS_9_Benchmark_v2.0.0.xlsx', 'cis', 'v2.0.0', 'Alma', '9'),
     ]

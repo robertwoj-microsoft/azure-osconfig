@@ -402,6 +402,10 @@ known_patterns = {
     r"Ensure sshd (\w+) is disabled": generic_ensure_sshd_configuration,
 }
 
+counters = {
+    'total': 0,
+}
+
 def load_script(row, procedure_idx) -> str:
     if not row[procedure_idx]:
         return None
@@ -446,6 +450,10 @@ def load_generic_audit(row):
         if match:
             result = callback(row, match, 'audit')
             if result:
+                if pattern in counters:
+                    counters[pattern] += 1
+                else:
+                    counters[pattern] = 1
                 return (
                     result[0],
                     {
@@ -511,6 +519,7 @@ def load_recommendation(row) -> Recommendation:
     init = load_generic_init(row)
     audit = load_generic_audit(row)
     remediation = load_generic_remediation(row)
+    counters['total'] += 1
     return Recommendation(
         row[RECOMMENDATION_IDX],
         row[SUMMARY_IDX],
@@ -566,4 +575,13 @@ def parse_CIS_Excel(input_directory: str) -> CISModel:
 
         if 'Level 2 - Workstation' in workbook.sheetnames:
             model.benchmarks.append(load_benchmark(workbook["Level 2 - Workstation"], CISLevel.L1, MachineType.Workstation, input_definition.distribution_name, input_definition.distribution_version, input_definition.benchmark_version))
+
+    matched = 0
+    for pattern, count in counters.items():
+        if pattern == 'total':
+            continue
+        print(f"{pattern}: {count}")
+        matched += count
+    print(f"Total recommendations: {counters['total']}")
+    print(f"Matched: {matched} - {matched / counters['total'] * 100:.2f}%")
     return model
