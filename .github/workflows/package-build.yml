@@ -58,7 +58,7 @@ env:
 
 jobs:
   package:
-    runs-on: [self-hosted, 1ES.Pool=robertwoj-e2e-pool, '1ES.ImageOverride=${{ build-infra }}']
+    runs-on: [self-hosted, 1ES.Pool=robertwoj-e2e-pool, '1ES.ImageOverride=${{ inputs.target }}']
     steps:
       - uses: actions/checkout@v4
         with:
