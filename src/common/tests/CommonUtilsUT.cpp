@@ -707,11 +707,11 @@ TEST_F(CommonUtilsTest, CheckFileExists)
 {
     EXPECT_TRUE(CreateTestFile(m_path, m_data));
     EXPECT_EQ(0, CheckFileExists(m_path, nullptr, nullptr));
-    EXPECT_EQ(EEXIST, CheckFileNotFound(m_path, nullptr, nullptr));
+    EXPECT_EQ(ENOENT, CheckFileNotFound(m_path, nullptr, nullptr));
     EXPECT_TRUE(Cleanup(m_path));
-    EXPECT_EQ(EEXIST, CheckFileExists(m_path, nullptr, nullptr));
+    EXPECT_EQ(ENOENT, CheckFileExists(m_path, nullptr, nullptr));
     EXPECT_EQ(0, CheckFileNotFound(m_path, nullptr, nullptr));
-    EXPECT_EQ(EEXIST, CheckFileExists("This file does not exist", nullptr, nullptr));
+    EXPECT_EQ(ENOENT, CheckFileExists("This file does not exist", nullptr, nullptr));
     EXPECT_EQ(0, CheckFileNotFound("This file does not exist", nullptr, nullptr));
 }
 
@@ -2249,6 +2249,8 @@ TEST_F(CommonUtilsTest, ReplaceMarkedLinesInFile)
     EXPECT_EQ(EINVAL, ReplaceMarkedLinesInFile(nullptr, nullptr, nullptr, '#', false, nullptr));
     EXPECT_EQ(EINVAL, ReplaceMarkedLinesInFile(m_path, nullptr, nullptr, '#', false, nullptr));
 
+    EXPECT_EQ(0, ReplaceMarkedLinesInFile("does_not_exist", marker1, newline1, '#', true, nullptr));
+    
     EXPECT_EQ(0, ReplaceMarkedLinesInFile(m_path, marker1, newline1, '#', true, nullptr));
     EXPECT_STREQ(outFile1, contents = LoadStringFromFile(m_path, false, nullptr));
     FREE_MEMORY(contents);
@@ -2378,22 +2380,34 @@ TEST_F(CommonUtilsTest, RemoveEscapeSequencesFromFile)
 TEST_F(CommonUtilsTest, AsbIsValidResourceIdRuleId)
 {
     const char* goodResourceId = "Ensure SMB V1 with Samba is disabled (CIS: L1 - Server - 2.2.12)";
+    const char* differentCaseResourceId = "ensure SMB V1 with Samba is disabled (CIS: L1 - Server - 2.2.12)";
     const char* goodRuleId = "7624efb0-3026-4c72-8920-48d5be78a50e";
+    const char* differentCaseGoodRuleId = "7624EFB0-3026-4C72-8920-48D5BE78A50E";
     const char* badResourceId = "Ensure the rsh client is not installed (CIS: L1 - Server - 2.3.2)";
     const char* badRuleId = "6d441f31-f888-4f4f-b1da-7cfc26263e3f";
+    const char* differentCaseBadRuleId = "6D441F31-F888-4F4F-B1DA-7CFC26263E3F";
+    
     const char* payloadKey = "EnsureSmbWithSambaIsDisabled";
     
     EXPECT_EQ(EINVAL, AsbIsValidResourceIdRuleId(nullptr, nullptr, nullptr, nullptr));
     EXPECT_EQ(EINVAL, AsbIsValidResourceIdRuleId(goodResourceId, nullptr, nullptr, nullptr));
     EXPECT_EQ(EINVAL, AsbIsValidResourceIdRuleId(goodResourceId, goodRuleId, nullptr, nullptr));
+    EXPECT_EQ(EINVAL, AsbIsValidResourceIdRuleId(nullptr, nullptr, payloadKey, nullptr));
 
     EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(badResourceId, goodRuleId, payloadKey, nullptr));
     EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(goodResourceId, badRuleId, payloadKey, nullptr));
     EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(badResourceId, badRuleId, payloadKey, nullptr));
+    EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(differentCaseResourceId, goodRuleId, payloadKey, nullptr));
+    EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(differentCaseResourceId, differentCaseGoodRuleId, payloadKey, nullptr));
+    EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(differentCaseResourceId, differentCaseBadRuleId, payloadKey, nullptr));
+    EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(nullptr, differentCaseBadRuleId, payloadKey, nullptr));
+    EXPECT_EQ(ENOENT, AsbIsValidResourceIdRuleId(differentCaseResourceId, nullptr, payloadKey, nullptr));
 
     EXPECT_EQ(0, AsbIsValidResourceIdRuleId(goodResourceId, goodRuleId, payloadKey, nullptr));
     EXPECT_EQ(0, AsbIsValidResourceIdRuleId(nullptr, goodRuleId, payloadKey, nullptr));
     EXPECT_EQ(0, AsbIsValidResourceIdRuleId(goodResourceId, nullptr, payloadKey, nullptr));
+    EXPECT_EQ(0, AsbIsValidResourceIdRuleId(goodResourceId, differentCaseGoodRuleId, payloadKey, nullptr));
+    EXPECT_EQ(0, AsbIsValidResourceIdRuleId(nullptr, differentCaseGoodRuleId, payloadKey, nullptr));
 }
 
 TEST_F(CommonUtilsTest, IsValidDaemonName)
