@@ -14,6 +14,8 @@
 #include <Logging.h>
 #include <Asb.h>
 
+#define KKBUILD_TEST 1
+
 #define RETURN_REASON_IF_ZERO(call) {\
     if (0 == (call)) {\
         return reason;\
